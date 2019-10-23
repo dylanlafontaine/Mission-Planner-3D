@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class readSpawnTest : MonoBehaviour
 {
+    GeoCoordinate test = new GeoCoordinate();
     public GameObject myPrefab;
     // Start is called before the first frame update
     void Start()
