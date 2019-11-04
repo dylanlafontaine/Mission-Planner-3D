@@ -11,7 +11,12 @@ public class FlyCamera : MonoBehaviour
     Made simple to use (drag and drop, done) for regular keyboard layout  
     wasd : basic movement
     shift : Makes camera accelerate
-    space : Moves camera on X and Z axis only.  So camera doesn't gain any height*/
+    space : Moves camera on X and Z axis only.  So camera doesn't gain any height
+    
+    Added upwards and downwards movement with Q and R. 
+    Only works when right-click button is held down.*/
+
+
 
 
     public float mainSpeed = 100.0f; //regular speed
@@ -106,6 +111,14 @@ public class FlyCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             p_Velocity += new Vector3(1, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            p_Velocity += new Vector3(0, -1, 0);
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            p_Velocity += new Vector3(0, 1, 0);
         }
         return p_Velocity;
     }
