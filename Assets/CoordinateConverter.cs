@@ -3,6 +3,91 @@
 public class CoordinateConverter
 {
     /// <summary>
+    /// pass in origin and unknown point, return its location in 3D space
+    /// </summary>
+    /// <param name="origin"></param>
+    /// <param name="point"></param>
+    /// <returns>MeterCoordinate</returns>
+    public MeterCoordinate FindMeterCoordinateFromOrigin(GeoCoordinate origin, GeoCoordinate point)
+    {
+        MeterCoordinate result = new MeterCoordinate();
+        double distance = DistanceBetweenGeoPoints(origin, point), bearing = FindBearing(origin, point);
+
+        if (bearing == 0)
+        {
+            result.X = distance;
+            return result;
+        }
+        else if (bearing == 90)
+        {
+            result.Y = distance;
+            return result;
+        }
+        else if (bearing == 180)
+        {
+            result.X = distance * -1;
+            return result;
+        }
+        else if (bearing == 270)
+        {
+            result.Y = distance * -1;
+            return result;
+        }
+        else
+        {
+            double angleA = 0;
+            if (bearing < 90)
+            {
+                angleA = bearing;
+            }
+            else if (bearing > 90 && bearing < 180)
+            {
+                angleA = bearing - 90;
+            }
+            else if (bearing > 180 && bearing < 270)
+            {
+                angleA = bearing - 180;
+            }
+            else if (bearing > 270)
+            {
+                angleA = bearing - 270;
+            }
+
+            double angleC = 90 - bearing, angleB = 90;
+            double sideB = distance;
+
+            double sideA = ((sideB * Math.Sin(angleA)) / Math.Sin(angleB));
+
+            double sideC = ((sideB * Math.Sin(angleC)) / Math.Sin(angleB));
+
+            if (bearing < 90)
+            {
+                result.X = sideC;
+                result.Y = sideA;
+                return result;
+            }
+            else if (bearing > 90 && bearing < 180)
+            {
+                result.X = sideC * -1;
+                result.Y = sideA;
+            }
+            else if (bearing > 180 && bearing < 270)
+            {
+                result.X = sideC * -1;
+                result.Y = sideA * -1;
+            }
+            else if (bearing > 270)
+            {
+                result.X = sideC;
+                result.Y = sideA * -1;
+            }
+        }
+
+
+        return result;
+    }
+
+    /// <summary>
     /// this method takes two sets of coordinates and converts them to 
     /// </summary>
     /// <param name="end"></param>
@@ -27,12 +112,44 @@ public class CoordinateConverter
         }
     }
 
-    private double deg2rad(double deg)
+    /// <summary>
+    /// returns the angle of the bearing.
+    /// </summary>
+    /// <param name="point1"></param>
+    /// <param name="point2"></param>
+    /// <returns>double angle of bearing</returns>
+    private double FindBearing(GeoCoordinate point1, GeoCoordinate point2)
+    {
+        var dLon = ToRad(point2.Longitude - point1.Longitude);
+        var dPhi = Math.Log(
+            Math.Tan(ToRad(point2.Latitude) / 2 + Math.PI / 4) / Math.Tan(ToRad(point1.Latitude) / 2 + Math.PI / 4));
+        if (Math.Abs(dLon) > Math.PI)
+            dLon = dLon > 0 ? -(2 * Math.PI - dLon) : (2 * Math.PI + dLon);
+        return ToBearing(Math.Atan2(dLon, dPhi));
+    }
+
+    private static double ToRad(double degrees)
+    {
+        return degrees * (Math.PI / 180);
+    }
+
+    private static double ToDegrees(double radians)
+    {
+        return radians * 180 / Math.PI;
+    }
+
+    private static double ToBearing(double radians)
+    {
+        // convert radians to degrees (as bearing: 0...360)
+        return (ToDegrees(radians) + 360) % 360;
+    }
+
+    private static double deg2rad(double deg)
     {
         return (deg * Math.PI / 180.0);
     }
 
-    private double rad2deg(double rad)
+    private static double rad2deg(double rad)
     {
         return (rad / Math.PI * 180.0);
     }
@@ -85,6 +202,12 @@ public class MeterCoordinate
 {
     private double x;
     private double y;
+
+    public MeterCoordinate()
+    {
+        this.x = 0;
+        this.y = 0;
+    }
 
     public double X
     {
