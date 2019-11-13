@@ -88,27 +88,26 @@ public class CoordinateConverter
     }
 
     /// <summary>
-    /// this method takes two sets of coordinates and converts them to 
+    /// finds the distance between the lat long coords
     /// </summary>
     /// <param name="end"></param>
     /// <param name="start"></param>
     /// <returns>distance in meters between the two points, double</returns>
     private double DistanceBetweenGeoPoints(GeoCoordinate point1, GeoCoordinate point2)
     {
+        // check for equal points
         if ((point1.Latitude == point2.Latitude) && (point1.Longitude == point2.Longitude))
         {
             return 0;
         }
         else
         {
-            double theta = point1.Longitude - point2.Longitude;
-            double dist = Math.Sin(deg2rad(point1.Latitude)) * Math.Sin(deg2rad(point2.Latitude)) + Math.Cos(deg2rad(point1.Latitude)) * Math.Cos(deg2rad(point2.Latitude)) * Math.Cos(deg2rad(theta));
-            dist = Math.Acos(dist);
-            dist = rad2deg(dist);
-            dist = dist * 60 * 1.1515;
-            dist = (dist * 1.609344) / 1000;
+            double dlon = ToRad(point2.Longitude - point1.Longitude);
+            double dlat = ToRad(point2.Latitude - point1.Latitude);
 
-            return dist;
+            double a = (Math.Sin(dlat / 2) * Math.Sin(dlat / 2)) + Math.Cos(ToRad(point1.Latitude)) * Math.Cos(ToRad(point2.Latitude)) * (Math.Sin(dlon / 2) * Math.Sin(dlon / 2));
+            double angle = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return angle * 6371e3;
         }
     }
 
@@ -120,12 +119,31 @@ public class CoordinateConverter
     /// <returns>double angle of bearing</returns>
     private double FindBearing(GeoCoordinate point1, GeoCoordinate point2)
     {
-        var dLon = ToRad(point2.Longitude - point1.Longitude);
-        var dPhi = Math.Log(
-            Math.Tan(ToRad(point2.Latitude) / 2 + Math.PI / 4) / Math.Tan(ToRad(point1.Latitude) / 2 + Math.PI / 4));
-        if (Math.Abs(dLon) > Math.PI)
-            dLon = dLon > 0 ? -(2 * Math.PI - dLon) : (2 * Math.PI + dLon);
-        return ToBearing(Math.Atan2(dLon, dPhi));
+        double dLon = ToRad(point2.Longitude - point1.Longitude);
+
+        double y = Math.Sin(dLon) * Math.Cos(ToRad(point2.Latitude));
+        double x = Math.Cos(ToRad(point1.Latitude)) * Math.Sin(ToRad(point2.Latitude)) - Math.Sin(ToRad(point1.Latitude))
+                * Math.Cos(ToRad(point2.Latitude)) * Math.Cos(dLon);
+
+        double brng = Math.Atan2(y, x);
+
+        brng = ToDegrees(brng);
+        brng = (brng + 360) % 360;
+        brng = 360 - brng; // count degrees counter-clockwise - remove to make clockwise
+
+        return brng;
+    }
+
+    private double atan2(double y, double x)
+    {
+        if (x < 0)
+        {
+            return (Math.Atan(y / x) + 3 * Math.PI / 2); // subst 270 for 3*pi/2 if degrees
+        }
+        else
+        {
+            return (Math.Atan(y / x) + Math.PI / 2); // subst 90 for pi/2 if degrees
+        }
     }
 
     private static double ToRad(double degrees)
@@ -154,7 +172,36 @@ public class CoordinateConverter
         return (rad / Math.PI * 180.0);
     }
 
-    public static double MeterCoordtoGeoCoord(GeoCoordinate originGeo, MeterCoordinate originMeter, MeterCoordinate end)
+    private double FindLatitude(MeterCoordinate end, MeterCoordinate originMeter, GeoCoordinate originGeo)
+    {
+        int earthRadius = 63781370; //meters
+        double complimentAngle = 90 - Math.Abs(originGeo.Longitude);
+        double radius = Math.Sin(complimentAngle) * earthRadius;
+        double circumference = Math.PI * 2 * radius;
+        double deltaX = end.X - originMeter.X;
+        return (deltaX / circumference) * 360 + originGeo.Latitude;
+
+    }
+
+    private double FindLongitude(MeterCoordinate end, MeterCoordinate originMeter, GeoCoordinate originGeo)
+    {
+        int earthRadius = 63781370; //meters
+        double complimentAngle = 90 - Math.Abs(originGeo.Latitude);
+        double radius = Math.Sin(complimentAngle) * earthRadius;
+        double circumference = Math.PI * 2 * radius;
+        double deltaY = end.Y - originMeter.Y;
+        return (deltaY / circumference) * 360 + originGeo.Longitude;
+
+    }
+
+    /// <summary>
+    /// the main function to find lat long from a geo coordinate
+    /// </summary>
+    /// <param name="originGeo"></param>
+    /// <param name="originMeter"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
+    public GeoCoordinate MeterCoordtoGeoCoord(GeoCoordinate originGeo, MeterCoordinate originMeter, MeterCoordinate end)
     {
         /*
         δ = distance r / Earth radius(both in the same units)
@@ -162,8 +209,10 @@ public class CoordinateConverter
         lat_P2 = asin(sin lat_O ⋅ cos δ + cos lat_O ⋅ sin δ ⋅ cos θ)
         lon_P2 = lon_O + atan((sin θ ⋅ sin δ ⋅ cos lat_O) / (cos δ − sin lat_O ⋅ sin lat_P2))
         */
-
-        return 0;
+        GeoCoordinate result = new GeoCoordinate();
+        result.Latitude = FindLatitude(end, originMeter, originGeo);
+        result.Longitude = FindLongitude(end, originMeter, originGeo);
+        return result;
     }
 }
 
@@ -171,6 +220,18 @@ public class GeoCoordinate
 {
     private double latitude;
     private double longitude;
+
+    public GeoCoordinate(double v1, double v2)
+    {
+        this.latitude = v1;
+        this.longitude = v2;
+    }
+
+    public GeoCoordinate()
+    {
+        this.latitude = 0;
+        this.longitude = 0;
+    }
 
     public double Latitude
     {
