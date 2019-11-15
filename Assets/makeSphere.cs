@@ -11,11 +11,13 @@ public class makeSphere : MonoBehaviour
     public GameObject prefabSphere;
     public Button myButton;
     private Camera cam;
+    private readSpawnTest master;
     // Start is called before the first frame update
     void Start()
     {
         myButton.onClick.AddListener(TaskOnClick);
         cam = Camera.main;
+        master = (readSpawnTest)FindObjectOfType(typeof(readSpawnTest));
     }
 
     // Update is called once per frame
@@ -42,6 +44,11 @@ public class makeSphere : MonoBehaviour
         //newSphere = Instantiate(prefabSphere, mousePositionInWorld, Quaternion.identity);
         newSphere = Instantiate(prefabSphere, point, Quaternion.identity);
         newSphere.transform.name = "Sphere";
+        Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
+        newSphereRenderer.enabled = true;
+
+        newSphere.AddComponent<LineRenderer>();
+        master.points.Add(newSphere);
         //newSphere.AddComponent<spawnUI>();
         //GUILayout.BeginArea(new Rect(20, 20, 250, 120));
         //GUILayout.Label("Screen pixels: " + cam.pixelWidth + ":" + cam.pixelHeight);

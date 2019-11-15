@@ -68,6 +68,7 @@ public class readSpawnTest : MonoBehaviour
             Debug.Log("New point final Z = " + (originPoint.transform.position.z + (float)result.Y));
             GameObject point = Instantiate(masterPoint, new Vector3(originPoint.transform.position.x + (float)result.X, originPoint.transform.position.y + (float)nums[10], 
                 originPoint.transform.position.z + (float)result.Y), Quaternion.identity);
+            point.transform.name = "Sphere";
             point.AddComponent<LineRenderer>();
             points.Add(point);
             Debug.Log("");
