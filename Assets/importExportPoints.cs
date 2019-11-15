@@ -31,14 +31,17 @@ public class importExportPoints : MonoBehaviour
     {
         GeoCoordinate test = new GeoCoordinate();
         GeoCoordinate origin = new GeoCoordinate();
-        origin.Latitude = 46.7302976970894;
-        origin.Longitude = -117.168948054314;
+        origin.Latitude = (decimal)46.7302976970894;
+        origin.Longitude = (decimal)-117.168948054314;
         CoordinateConverter myConverter = new CoordinateConverter();
         GeoCoordinate newPoint = new GeoCoordinate();
         MeterCoordinate result = new MeterCoordinate();
+        MeterCoordinate originMeterPoint = new MeterCoordinate();
+        originMeterPoint.X = (decimal)originPoint.transform.position.x;
+        originMeterPoint.Y = (decimal)originPoint.transform.position.z;
         string line;
         int lineNum = 1;
-        double[] nums = new double[20];
+        decimal[] nums = new decimal[20];
         string[] words = { };
         // Read the file and display it line by line.  
         System.IO.StreamReader file =
@@ -59,7 +62,7 @@ public class importExportPoints : MonoBehaviour
             foreach (string word in words)
             {
                 //Debug.Log((string)word);
-                nums[i] = double.Parse(word);
+                nums[i] = decimal.Parse(word);
                 /*if (i == 10)
                 {
                     Debug.Log(word);
@@ -75,15 +78,14 @@ public class importExportPoints : MonoBehaviour
             //height = nums[10]
             Debug.Log("Origin Lat = " + origin.Latitude + "\nnewPoint Lat = " + newPoint.Latitude);
             Debug.Log("Origin Long = " + origin.Longitude + "\nnewPoint Long = " + newPoint.Longitude);
-            result = myConverter.FindMeterCoordinateFromOrigin(origin, newPoint);
-            Debug.Log("New point X = " + (float)result.X);
+            result = myConverter.FindMeterCoordinateFromOrigin(originMeterPoint, origin, newPoint);
+            /*Debug.Log("New point X = " + (float)result.X);
             Debug.Log("New point Y = " + (float)nums[10]);
             Debug.Log("New point Z = " + (float)result.Y);
             Debug.Log("New point final X = " + (originPoint.transform.position.x + (float)result.X));
             Debug.Log("New point final Y = " + (originPoint.transform.position.y + (float)nums[10]));
-            Debug.Log("New point final Z = " + (originPoint.transform.position.z + (float)result.Y));
-            GameObject point = Instantiate(masterPoint, new Vector3(originPoint.transform.position.x + (float)result.X, originPoint.transform.position.y + (float)nums[10],
-                originPoint.transform.position.z + (float)result.Y), Quaternion.identity);
+            Debug.Log("New point final Z = " + (originPoint.transform.position.z + (float)result.Y));*/
+            GameObject point = Instantiate(masterPoint, new Vector3((float)result.X, originPoint.transform.position.y + (float)nums[10], (float)result.Y), Quaternion.identity);
             point.transform.name = "Sphere";
             point.AddComponent<LineRenderer>();
             Renderer newSphereRenderer = point.GetComponent(typeof(Renderer)) as Renderer;

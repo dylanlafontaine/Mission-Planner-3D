@@ -1730,9 +1730,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c65c5ee5c215b438ef9ecda8db0d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: []
+  myButton: {fileID: 1200064295}
   masterPoint: {fileID: 1585922404}
   originPoint: {fileID: 1864877424}
-  points: []
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
