@@ -28,7 +28,7 @@ public class makeSphere : MonoBehaviour
 
     void TaskOnClick()
     {
-        Vector3 point = new Vector3();
+        Vector3 point;
         //Event currentEvent = Event.current;
         Vector2 mousePos = new Vector2();
         Vector3 mousePositionInWorld = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -36,10 +36,10 @@ public class makeSphere : MonoBehaviour
         Debug.Log("clicked");
         // Get the mouse position from Event.
         // Note that the y position from Event is inverted.
-        mousePos.x = Input.mousePosition.x;
-        mousePos.y = cam.pixelHeight - Input.mousePosition.y;
-
-        point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane + 50));
+        //mousePos.x = Input.mousePosition.x;
+        //mousePos.y = cam.pixelHeight - Input.mousePosition.y;
+        point = new Vector3(spawnUI.selectedSphere.position.x, spawnUI.selectedSphere.position.y + 10, spawnUI.selectedSphere.position.z);
+        //point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane + 50));
         //Debug.Log("position: " + cam.nearClipPlane);
         //newSphere = Instantiate(prefabSphere, mousePositionInWorld, Quaternion.identity);
         newSphere = Instantiate(prefabSphere, point, Quaternion.identity);
