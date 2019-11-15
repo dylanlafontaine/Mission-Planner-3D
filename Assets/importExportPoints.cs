@@ -3,18 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class readSpawnTest : MonoBehaviour
+public class importExportPoints : MonoBehaviour
 {
-    GeoCoordinate test = new GeoCoordinate();
+    public List<GameObject> points;
+
+    public Button myButton;
     public GameObject masterPoint;
     public GameObject originPoint;
-    GeoCoordinate origin = new GeoCoordinate();
-    public List<GameObject> points = new List<GameObject>();
-
     // Start is called before the first frame update
     void Start()
     {
+        myButton.onClick.AddListener(Import);
+        points = ((MasterController)FindObjectOfType(typeof(MasterController))).points;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    
+    }
+
+    public void Import()
+    {
+        GeoCoordinate test = new GeoCoordinate();
+        GeoCoordinate origin = new GeoCoordinate();
         origin.Latitude = 46.7302976970894;
         origin.Longitude = -117.168948054314;
         CoordinateConverter myConverter = new CoordinateConverter();
@@ -66,10 +82,12 @@ public class readSpawnTest : MonoBehaviour
             Debug.Log("New point final X = " + (originPoint.transform.position.x + (float)result.X));
             Debug.Log("New point final Y = " + (originPoint.transform.position.y + (float)nums[10]));
             Debug.Log("New point final Z = " + (originPoint.transform.position.z + (float)result.Y));
-            GameObject point = Instantiate(masterPoint, new Vector3(originPoint.transform.position.x + (float)result.X, originPoint.transform.position.y + (float)nums[10], 
+            GameObject point = Instantiate(masterPoint, new Vector3(originPoint.transform.position.x + (float)result.X, originPoint.transform.position.y + (float)nums[10],
                 originPoint.transform.position.z + (float)result.Y), Quaternion.identity);
             point.transform.name = "Sphere";
             point.AddComponent<LineRenderer>();
+            Renderer newSphereRenderer = point.GetComponent(typeof(Renderer)) as Renderer;
+            newSphereRenderer.enabled = true;
             points.Add(point);
             Debug.Log("");
             Array.Clear(words, 0, 11);
@@ -77,21 +95,5 @@ public class readSpawnTest : MonoBehaviour
 
         }
         Debug.Log("Up and running");
-        Renderer masterPointRenderer = masterPoint.GetComponent(typeof(Renderer)) as Renderer;
-        masterPointRenderer.enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        LineRenderer line;
-        for (int i = 0; i < points.Count - 1; i++)
-        {
-            line = points[i].GetComponent(typeof(LineRenderer)) as LineRenderer;
-            line.SetPosition(0, points[i].transform.position);
-            line.SetPosition(1, points[i + 1].transform.position);
-            line.startWidth = 5f;
-            line.endWidth = .1f;
-        }
     }
 }

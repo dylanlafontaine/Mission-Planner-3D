@@ -11,13 +11,13 @@ public class makeSphere : MonoBehaviour
     public GameObject prefabSphere;
     public Button myButton;
     private Camera cam;
-    private readSpawnTest master;
+    private MasterController master;
     // Start is called before the first frame update
     void Start()
     {
         myButton.onClick.AddListener(TaskOnClick);
         cam = Camera.main;
-        master = (readSpawnTest)FindObjectOfType(typeof(readSpawnTest));
+        master = (MasterController)FindObjectOfType(typeof(MasterController));
     }
 
     // Update is called once per frame
