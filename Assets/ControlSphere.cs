@@ -10,6 +10,7 @@ public class ControlSphere : MonoBehaviour
     public float camSens = 0.25f; //How sensitive it with mouse
     public bool rotateOnlyIfMousedown = true;
     public bool movementStaysFlat = true;
+    public static Transform mySphere;
 
     private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun = 1.0f;
@@ -40,18 +41,21 @@ public class ControlSphere : MonoBehaviour
                 p = p * mainSpeed;
             }
             p = p * Time.deltaTime;
-            Vector3 newPosition = transform.position;
-            if (Input.GetKey(KeyCode.Space)
-                || (movementStaysFlat && !(rotateOnlyIfMousedown && Input.GetMouseButton(1))))
-            { //If player wants to move on X and Z axis only
-                transform.Translate(p);
-                newPosition.x = transform.position.x;
-                newPosition.z = transform.position.z;
-                transform.position = newPosition;
-            }
-            else
+            if (mySphere != null)
             {
-                transform.Translate(p);
+                Vector3 newPosition = mySphere.position;
+                if (Input.GetKey(KeyCode.Space)
+                    || (movementStaysFlat && !(rotateOnlyIfMousedown && Input.GetMouseButton(1))))
+                { //If player wants to move on X and Z axis only
+                    mySphere.Translate(p);
+                    newPosition.x = mySphere.position.x;
+                    newPosition.z = mySphere.position.z;
+                    mySphere.position = newPosition;
+                }
+                else
+                {
+                    mySphere.Translate(p);
+                }
             }
         }
     }

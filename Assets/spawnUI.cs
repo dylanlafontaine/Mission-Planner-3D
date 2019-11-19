@@ -36,6 +36,7 @@ public class spawnUI : MonoBehaviour
                     moveButton.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
                     addButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
                     movingSphere = true;
+                    ControlSphere.mySphere = hit.transform;
                     Debug.Log("on sphere");
                 }
                 else
@@ -57,6 +58,8 @@ public class spawnUI : MonoBehaviour
                 movingSphere = false;
             }
         }
+        if (selectedSphere == null)
+            movingSphere = false;
         /*if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
             Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
         {
