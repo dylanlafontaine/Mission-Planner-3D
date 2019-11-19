@@ -25,37 +25,9 @@ public class ControlSphere : MonoBehaviour
     {
         if (spawnUI.movingSphere)
         {
-            float f = 0.0f;
-            Vector3 p = GetBaseInput();
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                totalRun += Time.deltaTime;
-                p = p * totalRun * shiftAdd;
-                p.x = Mathf.Clamp(p.x, -maxShift, maxShift);
-                p.y = Mathf.Clamp(p.y, -maxShift, maxShift);
-                p.z = Mathf.Clamp(p.z, -maxShift, maxShift);
-            }
-            else
-            {
-                totalRun = Mathf.Clamp(totalRun * 0.5f, 1f, 1000f);
-                p = p * mainSpeed;
-            }
-            p = p * Time.deltaTime;
             if (mySphere != null)
             {
-                Vector3 newPosition = mySphere.position;
-                if (Input.GetKey(KeyCode.Space)
-                    || (movementStaysFlat && !(rotateOnlyIfMousedown && Input.GetMouseButton(1))))
-                { //If player wants to move on X and Z axis only
-                    mySphere.Translate(p);
-                    newPosition.x = mySphere.position.x;
-                    newPosition.z = mySphere.position.z;
-                    mySphere.position = newPosition;
-                }
-                else
-                {
-                    mySphere.Translate(p);
-                }
+                mySphere.Translate(GetBaseInput() * 1);
             }
         }
     }
