@@ -90,10 +90,9 @@ public class FlyCamera : MonoBehaviour
         {
             transform.Translate(p);
         }
-
     }
 
-    private Vector3 GetBaseInput()
+    public Vector3 GetBaseInput()
     { //returns the basic values, if it's 0 than it's not active.
         Vector3 p_Velocity = new Vector3();
         if (Input.GetKey(KeyCode.W))

@@ -13,7 +13,7 @@ public class spawnUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        deleteInScreen = false
+        deleteInScreen = false;
         movingSphere = false;
     }
 
@@ -31,11 +31,12 @@ public class spawnUI : MonoBehaviour
                 {
                     selectedSphere = hit.transform;
                     deleteInScreen = true;
-                    Debug.Log("My object is clicked by mouse");
+                    //Debug.Log("My object is clicked by mouse");
                     deleteButton.transform.position = new Vector3(Input.mousePosition.x - 50, Input.mousePosition.y, 0);
                     moveButton.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
                     addButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
-                    movingSphere = false;
+                    movingSphere = true;
+                    Debug.Log("on sphere");
                 }
                 else
                 {
@@ -48,6 +49,7 @@ public class spawnUI : MonoBehaviour
             }
             else
             {
+                Debug.Log("offscreen");
                 deleteButton.transform.position = new Vector3(-1000, 0, 0);
                 deleteInScreen = false;
                 moveButton.transform.position = new Vector3(-1000, 0, 0);
@@ -55,10 +57,10 @@ public class spawnUI : MonoBehaviour
                 movingSphere = false;
             }
         }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
+        /*if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
             Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
         {
-            movingSphere = true;
-        }
+            Debug.Log("on sphere");
+        }*/
     }
 }
