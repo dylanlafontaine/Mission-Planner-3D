@@ -11,13 +11,15 @@ public class importExportPoints : MonoBehaviour
 {
     public List<GameObject> points;
 
-    public Button myButton;
+    public Button importButton;
+    public Button exportButton;
+
     public GameObject masterPoint;
     public GameObject originPoint;
     // Start is called before the first frame update
     void Start()
     {
-        myButton.onClick.AddListener(Import);
+        importButton.onClick.AddListener(Import);
         points = ((MasterController)FindObjectOfType(typeof(MasterController))).points;
     }
 
