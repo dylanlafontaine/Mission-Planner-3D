@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class spawnUI : MonoBehaviour
 {
-    public Button deleteButton, moveButton, addButton;
+    public Button deleteButton, addButton, moveUp, moveDown;
     public bool deleteInScreen;
     public static Transform selectedSphere;
     public static bool movingSphere;
@@ -35,6 +35,8 @@ public class spawnUI : MonoBehaviour
                     //Debug.Log("My object is clicked by mouse");
                     deleteButton.transform.position = new Vector3(Input.mousePosition.x - 50, Input.mousePosition.y, 0);
                     addButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
+                    moveUp.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
+                    moveDown.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y - 50, 0);
                     movingSphere = true;
                     sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
                     sphereRender.material.color = Color.green;
@@ -46,6 +48,8 @@ public class spawnUI : MonoBehaviour
                     deleteButton.transform.position = new Vector3(-1000, 0, 0);
                     deleteInScreen = false;
                     addButton.transform.position = new Vector3(-1000, 0, 0);
+                    moveUp.transform.position = new Vector3(-1000, 0, 0);
+                    moveDown.transform.position = new Vector3(-1000, 0, 0);
                     movingSphere = false;
                     if (selectedSphere != null)
                     {
@@ -60,6 +64,8 @@ public class spawnUI : MonoBehaviour
                 deleteButton.transform.position = new Vector3(-1000, 0, 0);
                 deleteInScreen = false;
                 addButton.transform.position = new Vector3(-1000, 0, 0);
+                moveUp.transform.position = new Vector3(-1000, 0, 0);
+                moveDown.transform.position = new Vector3(-1000, 0, 0);
                 movingSphere = false;
                 if (selectedSphere != null)
                 {
