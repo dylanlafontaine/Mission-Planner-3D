@@ -9,6 +9,7 @@ public class spawnUI : MonoBehaviour
     public bool deleteInScreen;
     public static Transform selectedSphere;
     public static bool movingSphere;
+    public Renderer sphereRender;
     
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,8 @@ public class spawnUI : MonoBehaviour
                     moveButton.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
                     addButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
                     movingSphere = true;
+                    sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
+                    sphereRender.material.color = Color.green;
                     ControlSphere.mySphere = hit.transform;
                     Debug.Log("on sphere");
                 }
@@ -46,6 +49,11 @@ public class spawnUI : MonoBehaviour
                     moveButton.transform.position = new Vector3(-1000, 0, 0);
                     addButton.transform.position = new Vector3(-1000, 0, 0);
                     movingSphere = false;
+                    if (selectedSphere != null)
+                    {
+                        sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
+                        sphereRender.material.color = Color.white;
+                    }
                 }
             }
             else
@@ -56,6 +64,11 @@ public class spawnUI : MonoBehaviour
                 moveButton.transform.position = new Vector3(-1000, 0, 0);
                 addButton.transform.position = new Vector3(-1000, 0, 0);
                 movingSphere = false;
+                if (selectedSphere != null)
+                {
+                    sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
+                    sphereRender.material.color = Color.white;
+                }
             }
         }
         if (selectedSphere == null)
