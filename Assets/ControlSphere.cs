@@ -11,6 +11,7 @@ public class ControlSphere : MonoBehaviour
     public bool rotateOnlyIfMousedown = true;
     public bool movementStaysFlat = true;
     public static Transform mySphere;
+    public Vector3 baseVector;
 
     private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun = 1.0f;
@@ -27,7 +28,10 @@ public class ControlSphere : MonoBehaviour
         {
             if (mySphere != null)
             {
-                mySphere.Translate(GetBaseInput() * 1);
+                //baseVector = GetBaseInput();
+                //baseVector = Camera.main.transform.TransformDirection(baseVector);
+                //mySphere.Translate(baseVector * 1);
+                mySphere.Translate(GetBaseInput());
             }
         }
     }
@@ -38,6 +42,7 @@ public class ControlSphere : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             p_Velocity += new Vector3(0, 0, 1);
+            //p_Velocity = Camera.main.transform.TransformDirection(p_Velocity);
         }
         if (Input.GetKey(KeyCode.S))
         {
