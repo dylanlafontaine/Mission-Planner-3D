@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class spawnUI : MonoBehaviour
 {
-    public Button deleteButton, moveButton, addButton;
+    public Button deleteButton, addButton, moveUp, moveDown;
     public bool deleteInScreen;
     public static Transform selectedSphere;
-    public static bool movingSphere;
+    public static bool onSphere;
     public Renderer sphereRender;
     
     // Start is called before the first frame update
     void Start()
     {
         deleteInScreen = false;
-        movingSphere = false;
+        onSphere = false;
     }
 
     // Update is called once per frame
@@ -34,9 +34,10 @@ public class spawnUI : MonoBehaviour
                     deleteInScreen = true;
                     //Debug.Log("My object is clicked by mouse");
                     deleteButton.transform.position = new Vector3(Input.mousePosition.x - 50, Input.mousePosition.y, 0);
-                    moveButton.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
                     addButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
-                    movingSphere = true;
+                    moveUp.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
+                    moveDown.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y - 50, 0);
+                    onSphere = true;
                     sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
                     sphereRender.material.color = Color.green;
                     ControlSphere.mySphere = hit.transform;
@@ -44,39 +45,15 @@ public class spawnUI : MonoBehaviour
                 }
                 else
                 {
-                    deleteButton.transform.position = new Vector3(-1000, 0, 0);
-                    deleteInScreen = false;
-                    moveButton.transform.position = new Vector3(-1000, 0, 0);
-                    addButton.transform.position = new Vector3(-1000, 0, 0);
-                    movingSphere = false;
-                    if (selectedSphere != null)
-                    {
-                        sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
-                        sphereRender.material.color = Color.white;
-                    }
+                    onSphere = false;
                 }
             }
             else
             {
-                Debug.Log("offscreen");
-                deleteButton.transform.position = new Vector3(-1000, 0, 0);
-                deleteInScreen = false;
-                moveButton.transform.position = new Vector3(-1000, 0, 0);
-                addButton.transform.position = new Vector3(-1000, 0, 0);
-                movingSphere = false;
-                if (selectedSphere != null)
-                {
-                    sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
-                    sphereRender.material.color = Color.white;
-                }
+                onSphere = false;
             }
         }
         if (selectedSphere == null)
-            movingSphere = false;
-        /*if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
-            Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
-        {
-            Debug.Log("on sphere");
-        }*/
+            onSphere = false;
     }
 }

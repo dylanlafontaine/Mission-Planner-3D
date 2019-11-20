@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlSphere : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ControlSphere : MonoBehaviour
     public bool movementStaysFlat = true;
     public static Transform mySphere;
     public Vector3 baseVector;
-
+    public Button add, delete, up, down;
     private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun = 1.0f;
     // Start is called before the first frame update
@@ -24,14 +25,19 @@ public class ControlSphere : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnUI.movingSphere)
+        if (spawnUI.onSphere)
         {
             if (mySphere != null)
             {
                 //baseVector = GetBaseInput();
                 //baseVector = Camera.main.transform.TransformDirection(baseVector);
                 //mySphere.Translate(baseVector * 1);
-                mySphere.Translate(GetBaseInput());
+                baseVector = GetBaseInput();
+                mySphere.Translate(baseVector);
+                //delete.transform.Translate(new Vector3(baseVector.x, baseVector.y, 0));
+                //add.transform.Translate(new Vector3(baseVector.x, baseVector.y, 0));
+                //up.transform.Translate(new Vector3(baseVector.x, baseVector.y, 0));
+                //down.transform.Translate(new Vector3(baseVector.x, baseVector.y, 0));
             }
         }
     }
@@ -39,6 +45,14 @@ public class ControlSphere : MonoBehaviour
     public Vector3 GetBaseInput()
     { //returns the basic values, if it's 0 than it's not active.
         Vector3 p_Velocity = new Vector3();
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || 
+            Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
+        {
+            add.transform.position = new Vector3(-1000, 0, 0);
+            delete.transform.position = new Vector3(-1000, 0, 0);
+            up.transform.position = new Vector3(-1000, 0, 0);
+            down.transform.position = new Vector3(-1000, 0, 0);
+        }
         if (Input.GetKey(KeyCode.W))
         {
             p_Velocity += new Vector3(0, 0, 1);

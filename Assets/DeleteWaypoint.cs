@@ -26,6 +26,7 @@ public class DeleteWaypoint : MonoBehaviour
     {
         master.points.Remove(spawnUI.selectedSphere.gameObject);
         Destroy(spawnUI.selectedSphere.gameObject);
-        myButton.transform.position = new Vector3(-1000, 0, 0); 
+        spawnUI.selectedSphere = null;
+        spawnUI.onSphere = false;
     }
 }

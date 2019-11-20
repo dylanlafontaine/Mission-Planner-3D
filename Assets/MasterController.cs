@@ -15,9 +15,15 @@ public class MasterController : MonoBehaviour
     void Update()
     {
         LineRenderer line;
+        foreach (var point in points)
+        {
+            line = point.GetComponent(typeof(LineRenderer)) as LineRenderer;
+            line.enabled = false;
+        }
         for (int i = 0; i < points.Count - 1; i++)
         {
             line = points[i].GetComponent(typeof(LineRenderer)) as LineRenderer;
+            line.enabled = true;
             line.SetPosition(0, points[i].transform.position);
             line.SetPosition(1, points[i + 1].transform.position);
             line.startWidth = 5f;

@@ -94,7 +94,7 @@ public class FlyCamera : MonoBehaviour
     public Vector3 GetBaseInput()
     { //returns the basic values, if it's 0 than it's not active.
         Vector3 p_Velocity = new Vector3();
-        if (!spawnUI.movingSphere)
+        if (!spawnUI.onSphere)
         {
             if (Input.GetKey(KeyCode.W))
             {
