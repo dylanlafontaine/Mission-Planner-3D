@@ -34,7 +34,6 @@ public class spawnUI : MonoBehaviour
                     deleteInScreen = true;
                     //Debug.Log("My object is clicked by mouse");
                     deleteButton.transform.position = new Vector3(Input.mousePosition.x - 50, Input.mousePosition.y, 0);
-                    moveButton.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
                     addButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
                     movingSphere = true;
                     sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
@@ -46,7 +45,6 @@ public class spawnUI : MonoBehaviour
                 {
                     deleteButton.transform.position = new Vector3(-1000, 0, 0);
                     deleteInScreen = false;
-                    moveButton.transform.position = new Vector3(-1000, 0, 0);
                     addButton.transform.position = new Vector3(-1000, 0, 0);
                     movingSphere = false;
                     if (selectedSphere != null)
@@ -61,7 +59,6 @@ public class spawnUI : MonoBehaviour
                 Debug.Log("offscreen");
                 deleteButton.transform.position = new Vector3(-1000, 0, 0);
                 deleteInScreen = false;
-                moveButton.transform.position = new Vector3(-1000, 0, 0);
                 addButton.transform.position = new Vector3(-1000, 0, 0);
                 movingSphere = false;
                 if (selectedSphere != null)
