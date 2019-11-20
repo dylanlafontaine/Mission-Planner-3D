@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using System.Text;
 
 public class importExportPoints : MonoBehaviour
 {
@@ -16,10 +17,16 @@ public class importExportPoints : MonoBehaviour
 
     public GameObject masterPoint;
     public GameObject originPoint;
+    GeoCoordinate origin;
     // Start is called before the first frame update
     void Start()
     {
+        origin = new GeoCoordinate();
+        origin.Latitude = (decimal)46.7302976970894;
+        origin.Longitude = (decimal)-117.168948054314;
+
         importButton.onClick.AddListener(Import);
+        exportButton.onClick.AddListener(Export);
         points = ((MasterController)FindObjectOfType(typeof(MasterController))).points;
     }
 
@@ -31,10 +38,6 @@ public class importExportPoints : MonoBehaviour
 
     public void Import()
     {
-        GeoCoordinate test = new GeoCoordinate();
-        GeoCoordinate origin = new GeoCoordinate();
-        origin.Latitude = (decimal)46.7302976970894;
-        origin.Longitude = (decimal)-117.168948054314;
         CoordinateConverter myConverter = new CoordinateConverter();
         GeoCoordinate newPoint = new GeoCoordinate();
         MeterCoordinate result = new MeterCoordinate();
@@ -98,6 +101,73 @@ public class importExportPoints : MonoBehaviour
             lineNum++;
 
         }
+        file.Close();
         Debug.Log("Up and running");
+    }
+
+    public void Export()
+    {
+        // init variables
+        string firstLine; // stores the first line
+        string secondLine; // stores second line
+        StringBuilder lineBuilder = new StringBuilder();
+        int lineNum = 1; // keeps track of the line number
+        string line;
+        MeterCoordinate xy = new MeterCoordinate();
+        decimal z;
+        GeoCoordinate latlon = new GeoCoordinate();
+        MeterCoordinate originMeter = new MeterCoordinate(Convert.ToDecimal(originPoint.transform.position.x), Convert.ToDecimal(originPoint.transform.position.z));
+        CoordinateConverter converter = new CoordinateConverter();
+
+        // infile/outfile
+        System.IO.StreamReader inFile =
+            new System.IO.StreamReader(@"SloanTest.waypoints");
+        System.IO.StreamWriter outFile = new System.IO.StreamWriter(@"SloanTestOutput.waypoints");
+
+
+        //Ignoring header
+        if ((firstLine = inFile.ReadLine()) == null)
+            Debug.Log("Blank File!!!");
+
+        //Ignoring sealevel?
+        if ((secondLine = inFile.ReadLine()) == null)
+            Debug.Log("Blank File!!!");
+
+        outFile.WriteLine(firstLine);
+        outFile.WriteLine(secondLine);
+
+        string[] words = { };
+        line = inFile.ReadLine();
+        words = Regex.Split(line, "\t");
+
+        foreach (GameObject point in points)
+        {
+            lineBuilder.Clear();
+
+            // get x y and z
+            xy.X = Convert.ToDecimal(point.transform.position.x);
+            xy.Y = Convert.ToDecimal(point.transform.position.z);
+            z = Convert.ToDecimal(point.transform.position.y);
+
+            // get lat lon
+            latlon = converter.MeterCoordtoGeoCoord(origin, originMeter, xy);
+
+            lineBuilder.Append(lineNum.ToString() + "\t");
+            lineBuilder.Append(words[1] + "\t" + words[2] + "\t" + words[3] + "\t" + words[4] + 
+                "\t" + words[5] + "\t" + words[6] + "\t" + words[7] + "\t");
+
+            lineBuilder.Append(((double)latlon.Latitude).ToString() + "\t");
+            lineBuilder.Append(((double)latlon.Longitude).ToString() + "\t");
+            lineBuilder.Append(((double)z).ToString() + "\t");  
+
+            lineBuilder.Append(1.ToString());
+
+            outFile.WriteLine(lineBuilder.ToString());
+
+            lineNum++;
+            
+        }
+        inFile.Close();
+        outFile.Close();
     }
 }
