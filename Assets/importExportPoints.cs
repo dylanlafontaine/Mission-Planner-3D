@@ -8,12 +8,16 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Text;
 
+using System.IO;
+using UnityEditor;
+
+
 public class importExportPoints : MonoBehaviour
 {
     public List<GameObject> points;
-
-    public Button importButton;
-    public Button exportButton;
+    
+    public UnityEngine.UI.Button importButton;
+    public UnityEngine.UI.Button exportButton;
 
     public GameObject masterPoint;
     public GameObject originPoint;
@@ -38,6 +42,7 @@ public class importExportPoints : MonoBehaviour
 
     public void Import()
     {
+        
         CoordinateConverter myConverter = new CoordinateConverter();
         GeoCoordinate newPoint = new GeoCoordinate();
         MeterCoordinate result = new MeterCoordinate();
@@ -48,9 +53,14 @@ public class importExportPoints : MonoBehaviour
         int lineNum = 1;
         decimal[] nums = new decimal[20];
         string[] words = { };
-        // Read the file and display it line by line.  
+        
+        //this launches the windows file explorer
+        string path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+
+        // convert string to System.IO.StreamReader for reading file  
         System.IO.StreamReader file =
-            new System.IO.StreamReader(@"SloanTest.waypoints");
+            new System.IO.StreamReader(@path);     
+        
         //Ignoring header
         if ((line = file.ReadLine()) == null)
             Debug.Log("Blank File!!!");
