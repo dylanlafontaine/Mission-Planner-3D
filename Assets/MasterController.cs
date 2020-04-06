@@ -8,7 +8,7 @@ public class MasterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //GameObject map = GetComponent<GameObject>("Map");
     }
 
     // Update is called once per frame

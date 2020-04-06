@@ -109,7 +109,6 @@ public class importExportPoints : MonoBehaviour
             Debug.Log("");
             Array.Clear(words, 0, 11);
             lineNum++;
-
         }
         file.Close();
         Debug.Log("Up and running");
