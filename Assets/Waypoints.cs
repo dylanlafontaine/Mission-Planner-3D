@@ -10,21 +10,14 @@ public class Waypoints : MonoBehaviour
 {
     private GameObject map;
     private OnlineMapsMarker3DManager mapMarkerManager;
+    public static GameObject newSphere;
+    public List<Waypoint> points = new List<Waypoint>();
 
     // Start is called before the first frame update
     void Start()
     {
-        map = GameObject.Find("Map");
-        if (map == null)
-        {
-            Debug.Log("Map game object not found.");
-        }
-        mapMarkerManager = map.GetComponent(typeof(OnlineMapsMarker3DManager)) as OnlineMapsMarker3DManager;
-        if (mapMarkerManager == null)
-        {
-            Debug.Log("Marker Manage not found.");
-        }
-        Debug.Log("Marker system found.");
+
+
     }
 
     // Update is called once per frame
@@ -32,25 +25,54 @@ public class Waypoints : MonoBehaviour
     {
         // add new waypoint
         if (Input.GetKey(KeyCode.P))
-            if (!addWaypoint())
+            if (!addWaypoint((float)100.0))
                 Debug.Log("Failed to add waypoint");
 
         // TO DO: Delete waypoint, edit waypoint, move waypoint
-
-        OnlineMaps.instance.Redraw();
     }
 
-    private bool addWaypoint()
+    private bool addWaypoint(float altitude)
     {
         // Screen coordinate of the cursor.
         Vector3 mousePosition = Input.mousePosition;
-        // Converts the screen coordinates to geographic.
         Vector3 mouseGeoLocation = OnlineMapsControlBase.instance.GetCoords(mousePosition);
-        // Showing geographical coordinates in the console.
-        //Debug.Log(mouseGeoLocation);
 
-        // add waypoint
-        //mapMarkerManager.CreateFromExistingGameObject(mouseGeoLocation[0], mouseGeoLocation[1], (Resources.Load("prefabs/ball", GameObject) as GameObject));
+        // should create a new marker
+        OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
+        marker.altitudeType = OnlineMapsAltitudeType.relative;
+        marker.altitude = altitude;
+
+        // create waypoint object and add it to list
+        Waypoint point = new Waypoint(marker);
+        points.Add(point);
+        Debug.Log(points);
+
+        OnlineMaps.instance.Redraw();
+
         return true;
+    }
+}
+
+public class Waypoint
+{
+    private OnlineMapsMarker3D _marker;
+
+    public Waypoint(OnlineMapsMarker3D marker)
+    {
+        this._marker = marker;
+    }
+
+    public OnlineMapsMarker3D Marker {
+        get {
+            return this._marker;
+        }
+        set {
+            this._marker = value;
+        }
+    }
+
+    public GameObject getGameObject ()
+    {
+        return this._marker.instance;
     }
 }

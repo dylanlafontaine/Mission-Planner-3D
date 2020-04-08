@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MasterController : MonoBehaviour
 {
+    // replace with Waypoints object
     public List<GameObject> points = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
