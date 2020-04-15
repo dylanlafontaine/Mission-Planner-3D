@@ -66,7 +66,6 @@ public class Waypoint
 {
 
 
-
     // PARAMS ordered left to right as seen in mission planner output file for waypoints
 
     //PARAM 1
