@@ -30,7 +30,7 @@ public class Waypoints : MonoBehaviour
         // TO DO: Delete waypoint, edit waypoint, move waypoint
     }
 
-    private bool addWaypoint(float altitude)
+    public bool addWaypoint(float altitude)
     {
         // Screen coordinate of the cursor.
         Vector3 mousePosition = Input.mousePosition;
@@ -55,7 +55,14 @@ public class Waypoints : MonoBehaviour
 
         OnlineMaps.instance.Redraw();
 
-        return(true);
+        return true;
+    }
+
+    // deletes the selected game object from the waypoints class when called
+    public bool deleteWaypoint()
+    {
+
+        return false;
     }
 }
 
@@ -68,7 +75,7 @@ public class Waypoint
     {
         get
         {
-            return(this._marker);
+            return this._marker;
         }
         set
         {
@@ -92,7 +99,7 @@ public class Waypoint
     {
         get
         {
-            return(this._number);
+            return this._number;
         }
         set
         {
@@ -109,7 +116,7 @@ public class Waypoint
     {
         get
         {
-            return(0);
+            return 0;
         }
     }
 
@@ -123,7 +130,7 @@ public class Waypoint
     {
         get 
         {
-            return(this._frame);
+            return this._frame;
         }
         set
         {
@@ -178,7 +185,7 @@ public class Waypoint
     {
         get
         {
-            return(this._delay);
+            return this._delay;
         }
         set
         {
@@ -195,7 +202,7 @@ public class Waypoint
     {
         get
         {
-            return(this._radius);
+            return this._radius;
         }
         set
         {
@@ -212,7 +219,7 @@ public class Waypoint
     {
         get
         {
-            return(this._pass);
+            return this._pass;
         }
         set
         {
