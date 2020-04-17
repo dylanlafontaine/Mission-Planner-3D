@@ -274,7 +274,7 @@ public class Waypoint
     }
 
     // will return the string that will be written to the outfile.
-    public String buildLine ()
+    public string buildLine ()
     {
         return("a line of waypoint data");
     }
