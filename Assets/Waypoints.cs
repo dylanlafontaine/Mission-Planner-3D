@@ -8,8 +8,6 @@ using UnityEngine;
 /// </summary>
 public class Waypoints : MonoBehaviour
 {
-    private GameObject map;
-    private OnlineMapsMarker3DManager mapMarkerManager;
     public GameObject newSphere;
     public GameObject prefabSphere;
     public List<Waypoint> points = new List<Waypoint>();
@@ -18,7 +16,6 @@ public class Waypoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        master = (MasterController)FindObjectOfType(typeof(MasterController));
 
     }
 
@@ -39,6 +36,7 @@ public class Waypoints : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Vector3 mouseGeoLocation = OnlineMapsControlBase.instance.GetCoords(mousePosition);
         mouseGeoLocation.z = 100;
+        
         // should create a new marker
         newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
         newSphere.transform.name = "Sphere";
@@ -47,41 +45,91 @@ public class Waypoints : MonoBehaviour
         newSphere.GetComponent<LineRenderer>().endWidth = 100;
         Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
         newSphereRenderer.enabled = true;
+        
         OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
         marker.altitudeType = OnlineMapsAltitudeType.relative;
         marker.altitude = altitude;
         // create waypoint object and add it to list
         Waypoint point = new Waypoint(marker);
         points.Add(point);
-        master.points.Add(newSphere);
-        Debug.Log(points);
 
         OnlineMaps.instance.Redraw();
 
-        return true;
+        return(true);
     }
 }
 
 public class Waypoint
 {
+    /**********************************************************************************
+     * CONSTRUCTOR
+    ***********************************************************************************/
+    public OnlineMapsMarker3D Marker
+    {
+        get
+        {
+            return(this._marker);
+        }
+        set
+        {
+            this._marker = value;
+        }
+    }
 
 
-    // PARAMS ordered left to right as seen in mission planner output file for waypoints
-
+    /***********************************************************************************
+     * PARAMETERS: These are the variables and properties for all of the editor properties
+     * for the waypoints. Use these to edit the wayboint object in functions in the
+     * Waypoints class.
+     * PARAMS ordered left to right as seen in mission planner output file for waypoints
+     * 
+    ************************************************************************************/
     //PARAM 1
     //Waypoint number in order of creation (0 is home point, counting starts at 1)
     private int _number;
+
+    public int Number
+    {
+        get
+        {
+            return(this._number);
+        }
+        set
+        {
+            this._number = value;
+        }
+    }
 
     //PARAM 2
     //IDK BUT THIS VALUE IS ALWAYS 0
     // -> homebutton value here is 1
     private int _placeholder0 = 0;
 
+    public int Placeholder0
+    {
+        get
+        {
+            return(0);
+        }
+    }
+
     //PARAM 3
     //Frame - 3 possible outpoints referring to point's position
     // (absolute = 0, relative = 3, terrain = 10)
     // -> homebutton default value is 0
     private int _frame;
+
+    public int Frame 
+    {
+        get 
+        {
+            return(this._frame);
+        }
+        set
+        {
+            this._frame = value;
+        }
+    }
 
     //PARAM 4
     //Command - many options, important seem to be takeoff, land, waypoint
@@ -122,45 +170,92 @@ public class Waypoint
     */
     private int _command;
 
-    //PARAM 5
+    // PARAM 5
     // Delay - seconds, may change based on what command, default is delay for waypoint
     private decimal _delay;
 
-    //PARAM 6
+    public decimal Delay
+    {
+        get
+        {
+            return(this._delay);
+        }
+        set
+        {
+            this._delay = value;
+        }
+    }
+
+    // PARAM 6
     // acceptance radius in meters 
     // (when plain inside the sphere of this radius, the waypoint is considered reached) (plane only)
     private decimal _radius;
 
-    //PARAM 7
+    public decimal Radius
+    {
+        get
+        {
+            return(this._radius);
+        }
+        set
+        {
+            this._radius = value;
+        }
+    }
+
+    // PARAM 7
     // 0 to pass through the WP, if > 0 radius in meters to pass by WP. Positive value for
     // clockwise orbit, negative value for counter-clockwise orbit. Allows trajectory control.
     private decimal _pass;
 
-    //PARAM 8
+    public decimal Pass
+    {
+        get
+        {
+            return(this._pass);
+        }
+        set
+        {
+            this._pass = value;
+        }
+    }
+
+    // PARAM 8
     // desired yaw angle at waypoint target (rotary wing)
     private decimal _yaw;
 
-    //PARAM 9
+    public decimal Yaw
+    {
+        get
+        {
+            return(this._yaw);
+        }
+        set
+        {
+            this._yaw = value;
+        }
+    }
+
+    // PARAM 9
     // Lat - Target latitude. If 0, the Copter will hold at current latitude
-    private decimal _lattitude;
+    // STORED IN MARKER!!!!!!!!!!!!!!
 
-    //PARAM 10
+    // PARAM 10
     // Long - Target longitude. If 0, the Copter will hold at current longitude
-    private decimal _longitude;
+    // STORED IN MARKER!!!!!!!!!!!!!!
 
-    //PARAM 11
+    // PARAM 11
     // Alt - Target altitude. If 0, the Copter will hold at current altitude
     // a "Landing" command value sets this to 0 automatically
-    private decimal _altitude;
+    // STORED IN MARKER!!!!!!!!!!!!!!
 
-    //PARAM 12
+    // PARAM 12
     // IDK BUT THIS VALUE IS ALWAYS 1
     private int _placeholder1 = 1;
 
-
-
-
-
+    // MARKER!
+    // contains the rendered marker game object, as well as the geo location,
+    // altitude, and more,
     private OnlineMapsMarker3D _marker;
 
     public Waypoint(OnlineMapsMarker3D marker)
@@ -168,17 +263,19 @@ public class Waypoint
         this._marker = marker;
     }
 
-    public OnlineMapsMarker3D Marker {
-        get {
-            return this._marker;
-        }
-        set {
-            this._marker = value;
-        }
-    }
 
+    /**********************************************************************************
+     * FUNCTIONS
+    ***********************************************************************************/
+    // returns the game object of the marker
     public GameObject getGameObject ()
     {
-        return this._marker.instance;
+        return(this._marker.instance);
+    }
+
+    // will return the string that will be written to the outfile.
+    public String buildLine ()
+    {
+        return("a line of waypoint data");
     }
 }
