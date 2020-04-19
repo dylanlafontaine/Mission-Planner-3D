@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 /// <summary>
 /// This class is going to be used to keep track of markers on the map
 /// </summary>
@@ -223,7 +221,56 @@ public class Waypoint
             DO_MOUNT_CONTROL        205
             UNKOWN                  CAN SET TO WHATEVER VALUE YOU WANT
     */
-    private int _command;
+    Dictionary<string, int> Commands = new Dictionary<string, int> {
+        {"WAYPOINT", 16},
+        {"SPLINE_WAYPOINT", 82},
+        {"LOITER_TURNS", 18},
+        {"LOITER_TIME", 19},
+        {"LOITER_UNLIM", 17},
+        {"RETURN_TO_LAUNCH", 20},
+        {"LAND", 21},
+        {"TAKEOFF", 22},
+        {"DELAY", 93},
+        {"GUIDED_ENABLE", 92},
+        {"PAYLOAD_PLACE", 94},
+        {"DO_GUIDED_LIMITS", 222},
+        {"DO_SET_ROI", 201},
+        {"CONDITION_DELAY", 112},
+        {"CONDITION_CHANGE_ALT", 113},
+        {"CONDITION_DISTANCE", 114},
+        {"CONDITION_YAW", 115},
+        {"DO_JUMP", 177},
+        {"DO_CHANGE_SPEEDS", 178},
+        {"DO_GRIPPER", 211},
+        {"DO_PARACHUTE", 208},
+        {"DO_SET_CAM_TRIGG_DIST", 206},
+        {"DO_SET_RELAY", 181},
+        {"DO_SET_SERVO", 183},
+        {"DO_REPEAT_SERVO", 184},
+        {"DO_DIGICAM_CONFIGURE", 202},
+        {"DO_DIGICAM_CONTROL", 203},
+        {"DO_MOUNT_CONTROL", 205},
+        {"UNKOWN", 999}
+    };
+
+    private string _command;
+
+    public string Command
+    {
+        get
+        {
+            return this._command;
+        }
+        set
+        {
+            this._command = value;
+        }
+    }
+
+    public int commandToInt()
+    {
+        return Commands[this._command];
+    }
 
     // PARAM 5
     // Delay - seconds, may change based on what command, default is delay for waypoint
