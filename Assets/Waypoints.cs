@@ -27,6 +27,12 @@ public class Waypoints : MonoBehaviour
             if (!addWaypoint((float)100.0))
                 Debug.Log("Failed to add waypoint");
 
+        // delete last waypoint that was added
+        if (points.Count > 0)
+            if (Input.GetKey(KeyCode.O))
+                if (!deleteWaypoint(points[points.Count - 1].getGameObject()))
+                    Debug.Log("Failed to delete waypoint");
+
         // TO DO: Delete waypoint, edit waypoint, move waypoint
 
         // draw the line between the waypoint objects.
@@ -52,6 +58,11 @@ public class Waypoints : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// adds a new waypoint to the map.
+    /// </summary>
+    /// <param name="altitude">the altitude of the created waypoint</param>
+    /// <returns>true upon success</returns>
     public bool addWaypoint(float altitude)
     {
         // Screen coordinate of the cursor.
@@ -80,10 +91,25 @@ public class Waypoints : MonoBehaviour
         return true;
     }
 
-    // deletes the selected game object from the waypoints class when called
-    public bool deleteWaypoint()
+    /// <summary>
+    /// Takes a gameobject, should be one of our waypoints, and deletes it from the map, and list
+    /// </summary>
+    /// <param name="deletedPoint">the game object of one of our wapoints</param>
+    /// <returns>true if success, false if failure.</returns>
+    public bool deleteWaypoint(GameObject deletedPoint)
     {
-
+        // search for point
+        foreach (var point in points) 
+        {
+            // if the id of the deletedPoint and point match up, delete form waypoints list.
+            if (point.getGameObject().GetInstanceID() == deletedPoint.GetInstanceID())
+            {
+                OnlineMapsMarker3DManager.RemoveItem(point.Marker); // remove the marker
+                points.Remove(point); // remove from the points list
+                return true;
+            }
+        }
+        Debug.Log("Could not find the selected game object.");
         return false;
     }
 }
