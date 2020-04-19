@@ -9,6 +9,8 @@ public class removeButtons : MonoBehaviour
 {
     public Button add, delete, up, down;
     public Renderer sphereRender;
+
+
     // Start is called before the first frame update
     void Start()
     {

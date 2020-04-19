@@ -9,21 +9,25 @@ public class Waypoints : MonoBehaviour
     public GameObject newSphere;
     public GameObject prefabSphere;
     public List<Waypoint> points = new List<Waypoint>();
-    private MasterController master;
+    private int pointCounter = 0;
+    private float timeElapsed = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         // add new waypoint
-        if (Input.GetKey(KeyCode.P))
+        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P))
+        {
+            timeElapsed = Time.time * 1000;
             if (!addWaypoint((float)100.0))
                 Debug.Log("Failed to add waypoint");
+        }
 
         // delete last waypoint that was added
         if (points.Count > 0)
@@ -70,7 +74,7 @@ public class Waypoints : MonoBehaviour
         
         // should create a new marker
         newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
-        newSphere.transform.name = "Sphere";
+        newSphere.transform.name = (pointCounter++).ToString();
         newSphere.AddComponent<LineRenderer>();
         newSphere.GetComponent<LineRenderer>().startWidth = 100;
         newSphere.GetComponent<LineRenderer>().endWidth = 100;

@@ -8,15 +8,16 @@ using UnityEngine.EventSystems;
 public class MoveUp : MonoBehaviour
 {
     public Button up, down;
-    public List<GameObject> points;
+    public List<Waypoint> points;
     public GameObject selectedSphere;
+    public Waypoint selectedWaypoint;
 
     // Start is called before the first frame update
     void Start()
     {
         up.onClick.AddListener(moveUp);
         down.onClick.AddListener(moveDown);
-        points = ((MasterController)FindObjectOfType(typeof(MasterController))).points;
+        points = ((Waypoints)FindObjectOfType(typeof(Waypoints))).points;
     }
 
     // Update is called once per frame
@@ -28,9 +29,9 @@ public class MoveUp : MonoBehaviour
     void moveUp()
     {
         int index;
-        GameObject temp;
-        selectedSphere = spawnUI.selectedSphere.gameObject;
-        index = points.IndexOf(selectedSphere);
+        Waypoint temp;
+        selectedWaypoint = spawnUI.selectedWaypoint;
+        index = points.IndexOf(selectedWaypoint);
         if (index < points.Count - 1)
         {
             temp = points[index];
@@ -42,9 +43,9 @@ public class MoveUp : MonoBehaviour
     void moveDown()
     {
         int index;
-        GameObject temp;
-        selectedSphere = spawnUI.selectedSphere.gameObject;
-        index = points.IndexOf(selectedSphere);
+        Waypoint temp;
+        selectedWaypoint = spawnUI.selectedWaypoint;
+        index = points.IndexOf(selectedWaypoint);
         if (index > 0)
         {
             temp = points[index];

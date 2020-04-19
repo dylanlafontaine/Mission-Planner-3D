@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 public class DeleteWaypoint : MonoBehaviour
 {
     public Button myButton;
-    private MasterController master;
+    private Waypoints waypoints;
 
     // Start is called before the first frame update
     void Start()
     {
         myButton.onClick.AddListener(TaskOnClick);
-        master = (MasterController)FindObjectOfType(typeof(MasterController));
+        waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
     }
 
     // Update is called once per frame
@@ -24,9 +24,11 @@ public class DeleteWaypoint : MonoBehaviour
 
     void TaskOnClick()
     {
-        master.points.Remove(spawnUI.selectedSphere.gameObject);
+        OnlineMapsMarker3DManager.RemoveItem(spawnUI.selectedWaypoint.Marker); // remove the marker
+        waypoints.points.Remove(spawnUI.selectedWaypoint); // remove from the points list
         Destroy(spawnUI.selectedSphere.gameObject);
         spawnUI.selectedSphere = null;
         spawnUI.onSphere = false;
+        Debug.Log("point deleted");
     }
 }

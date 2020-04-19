@@ -8,14 +8,18 @@ public class spawnUI : MonoBehaviour
     public Button deleteButton, addButton, moveUp, moveDown;
     public bool deleteInScreen;
     public static Transform selectedSphere;
+    public static Waypoint selectedWaypoint;
     public static bool onSphere;
     public Renderer sphereRender;
-    
+    private bool isWaypoint;
+    private Waypoints waypoints;
+
     // Start is called before the first frame update
     void Start()
     {
         deleteInScreen = false;
         onSphere = false;
+        waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
     }
 
     // Update is called once per frame
@@ -28,7 +32,17 @@ public class spawnUI : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.name == "Sphere")
+                isWaypoint = false;
+                foreach(var point in waypoints.points)
+                {
+                    if (point.getGameObject().name == hit.transform.name)
+                    {
+                        isWaypoint = true;
+                        selectedWaypoint = point;
+                        break;
+                    }
+                }
+                if (isWaypoint)
                 {
                     selectedSphere = hit.transform;
                     deleteInScreen = true;
