@@ -28,6 +28,28 @@ public class Waypoints : MonoBehaviour
                 Debug.Log("Failed to add waypoint");
 
         // TO DO: Delete waypoint, edit waypoint, move waypoint
+
+        // draw the line between the waypoint objects.
+        drawLine();
+    }
+
+    private void drawLine()
+    {
+        LineRenderer line;
+        foreach (var point in points)
+        {
+            line = point.getGameObject().GetComponent(typeof(LineRenderer)) as LineRenderer;
+            line.enabled = false;
+        }
+        for (int i = 0; i < points.Count - 1; i++)
+        {
+            line = points[i].getGameObject().GetComponent(typeof(LineRenderer)) as LineRenderer;
+            line.enabled = true;
+            line.SetPosition(0, points[i].getGameObject().transform.position);
+            line.SetPosition(1, points[i + 1].getGameObject().transform.position);
+            line.startWidth = 5f;
+            line.endWidth = .1f;
+        }
     }
 
     public bool addWaypoint(float altitude)
