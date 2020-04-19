@@ -24,11 +24,6 @@ public class DeleteWaypoint : MonoBehaviour
 
     void TaskOnClick()
     {
-        OnlineMapsMarker3DManager.RemoveItem(spawnUI.selectedWaypoint.Marker); // remove the marker
-        waypoints.points.Remove(spawnUI.selectedWaypoint); // remove from the points list
-        Destroy(spawnUI.selectedSphere.gameObject);
-        spawnUI.selectedSphere = null;
-        spawnUI.onSphere = false;
-        Debug.Log("point deleted");
+        waypoints.deleteWaypoint(spawnUI.selectedWaypoint);
     }
 }

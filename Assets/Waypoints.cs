@@ -15,7 +15,7 @@ public class Waypoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Waypoints : MonoBehaviour
         // delete last waypoint that was added
         if (points.Count > 0)
             if (Input.GetKey(KeyCode.O))
-                if (!deleteWaypoint(points[points.Count - 1].getGameObject()))
+                if (!deleteWaypoint(points[points.Count - 1]))
                     Debug.Log("Failed to delete waypoint");
 
         // TO DO: Delete waypoint, edit waypoint, move waypoint
@@ -71,7 +71,7 @@ public class Waypoints : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Vector3 mouseGeoLocation = OnlineMapsControlBase.instance.GetCoords(mousePosition);
         mouseGeoLocation.z = 100;
-        
+
         // should create a new marker
         newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
         newSphere.transform.name = (pointCounter++).ToString();
@@ -80,7 +80,7 @@ public class Waypoints : MonoBehaviour
         newSphere.GetComponent<LineRenderer>().endWidth = 100;
         Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
         newSphereRenderer.enabled = true;
-        
+
         OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
         marker.altitudeType = OnlineMapsAltitudeType.relative;
         marker.altitude = altitude;
@@ -98,21 +98,11 @@ public class Waypoints : MonoBehaviour
     /// </summary>
     /// <param name="deletedPoint">the game object of one of our wapoints</param>
     /// <returns>true if success, false if failure.</returns>
-    public bool deleteWaypoint(GameObject deletedPoint)
+    public bool deleteWaypoint(Waypoint deletedPoint)
     {
-        // search for point
-        foreach (var point in points) 
-        {
-            // if the id of the deletedPoint and point match up, delete form waypoints list.
-            if (point.getGameObject().GetInstanceID() == deletedPoint.GetInstanceID())
-            {
-                OnlineMapsMarker3DManager.RemoveItem(point.Marker); // remove the marker
-                points.Remove(point); // remove from the points list
-                return true;
-            }
-        }
-        Debug.Log("Could not find the selected game object.");
-        return false;
+        OnlineMapsMarker3DManager.RemoveItem(deletedPoint.Marker); // remove the marker
+        points.Remove(deletedPoint); // remove from the points list
+        return true;
     }
 }
 
