@@ -102,7 +102,48 @@ public class Waypoints : MonoBehaviour
     {
         OnlineMapsMarker3DManager.RemoveItem(deletedPoint.Marker); // remove the marker
         points.Remove(deletedPoint); // remove from the points list
+        Destroy(deletedPoint.getGameObject()); // destroy the game object within points.
         return true;
+    }
+
+    /// <summary>
+    /// takes a waypoint object and moves it up in the list
+    /// </summary>
+    /// <param name="selectedWaypoint"></param>
+    /// <returns></returns>
+    public bool moveWaypointUp(Waypoint selectedWaypoint)
+    {
+        int index;
+        Waypoint temp;
+        index = points.IndexOf(selectedWaypoint);
+        if (index < points.Count - 1)
+        {
+            temp = points[index];
+            points[index] = points[index + 1];
+            points[index + 1] = temp;
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// takes a waypoint object and moves it down in the list. 
+    /// </summary>
+    /// <param name="selectedWaypoint"></param>
+    /// <returns></returns>
+    public bool moveWaypointDown(Waypoint selectedWaypoint)
+    {
+        int index;
+        Waypoint temp;
+        index = points.IndexOf(selectedWaypoint);
+        if (index > 0)
+        {
+            temp = points[index];
+            points[index] = points[index - 1];
+            points[index - 1] = temp;
+            return true;
+        }
+        return false;
     }
 }
 
