@@ -26,12 +26,12 @@ public class MoveUp : MonoBehaviour
         
     }
 
-    void moveUp()
+    private void moveUp()
     {
         waypoints.moveWaypointUp(spawnUI.selectedWaypoint);
     }
 
-    void moveDown()
+    private void moveDown()
     {
         waypoints.moveWaypointDown(spawnUI.selectedWaypoint);
     }

@@ -22,7 +22,7 @@ public class DeleteWaypoint : MonoBehaviour
         
     }
 
-    void TaskOnClick()
+    private void TaskOnClick()
     {
         waypoints.deleteWaypoint(spawnUI.selectedWaypoint);
     }

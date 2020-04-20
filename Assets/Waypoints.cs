@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
 /// This class is going to be used to keep track of markers on the map
 /// </summary>
@@ -103,6 +104,8 @@ public class Waypoints : MonoBehaviour
         OnlineMapsMarker3DManager.RemoveItem(deletedPoint.Marker); // remove the marker
         points.Remove(deletedPoint); // remove from the points list
         Destroy(deletedPoint.getGameObject()); // destroy the game object within points.
+
+        OnlineMaps.instance.Redraw();
         return true;
     }
 
@@ -123,6 +126,8 @@ public class Waypoints : MonoBehaviour
             points[index + 1] = temp;
             return true;
         }
+
+        OnlineMaps.instance.Redraw();
         return false;
     }
 
@@ -143,6 +148,8 @@ public class Waypoints : MonoBehaviour
             points[index - 1] = temp;
             return true;
         }
+
+        OnlineMaps.instance.Redraw();
         return false;
     }
 }
