@@ -106,7 +106,7 @@ public class Waypoints : MonoBehaviour
         string commandS = Waypoint.intToCommand(command);
 
         // Screen set pointer lat lon
-        Vector3 mouseGeoLocation = new Vector3(latitude, longitude, altitude);
+        Vector3 mouseGeoLocation = new Vector3(latitude, longitude);
 
         // should create a new marker
         newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
