@@ -101,6 +101,42 @@ public class Waypoints : MonoBehaviour
         return true;
     }
 
+    public bool importWaypoint(int number, int frame, int command, decimal delay, decimal radius, decimal pass, decimal yaw, float latitude, float longitude, float altitude)
+    {
+        string commandS = Waypoint.intToCommand(command);
+
+        // Screen set pointer lat lon
+        Vector3 mouseGeoLocation = new Vector3(latitude, longitude, altitude);
+
+        // should create a new marker
+        newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
+        newSphere.transform.name = (pointCounter++).ToString();
+        newSphere.AddComponent<LineRenderer>();
+        newSphere.GetComponent<LineRenderer>().startWidth = 100;
+        newSphere.GetComponent<LineRenderer>().endWidth = 100;
+        Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
+        newSphereRenderer.enabled = true;
+
+        OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
+        marker.altitudeType = OnlineMapsAltitudeType.relative;
+        marker.altitude = altitude;
+
+        // create waypoint object and add it to list
+        Waypoint point = new Waypoint(marker);
+        point.Number = pointCounter;
+        point.Frame = frame;
+        point.Command = commandS;
+        point.Delay = delay;
+        point.Radius = radius;
+        point.Pass = pass;
+        point.Yaw = yaw;
+        points.Add(point);
+
+        OnlineMaps.instance.Redraw();
+
+        return true;
+    }
+
     /// <summary>
     /// Takes a gameobject, should be one of our waypoints, and deletes it from the map, and list
     /// </summary>
@@ -270,7 +306,7 @@ public class Waypoint
             DO_MOUNT_CONTROL        205
             UNKOWN                  CAN SET TO WHATEVER VALUE YOU WANT
     */
-    Dictionary<string, int> Commands = new Dictionary<string, int> {
+    static Dictionary<string, int> Commands = new Dictionary<string, int> {
         {"WAYPOINT", 16},
         {"SPLINE_WAYPOINT", 82},
         {"LOITER_TURNS", 18},
@@ -319,6 +355,14 @@ public class Waypoint
     public int commandToInt()
     {
         return Commands[this._command];
+    }
+
+    public static string intToCommand(int comm)
+    {
+        foreach (KeyValuePair<string, int> iter in Commands) 
+            if (iter.Value == comm)
+                return (iter.Key);
+        return "WAYPOINT";
     }
 
     // PARAM 5
@@ -438,7 +482,7 @@ public class Waypoint
         stringBuilder.Append(this.Number.ToString() + "\t" + 
             this.Placeholder0.ToString() + "\t" + 
             this.Frame.ToString() + "\t" +
-            this.Commands[this.Command].ToString() + "\t" +
+            Waypoint.Commands[this.Command].ToString() + "\t" +
             this.Delay.ToString() + "\t" +
             this.Radius.ToString() + "\t" +
             this.Pass.ToString() + "\t" + 
