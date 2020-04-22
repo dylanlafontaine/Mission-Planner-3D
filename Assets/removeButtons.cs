@@ -20,7 +20,7 @@ public class removeButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!spawnUI.onSphere)
+        /*if (!spawnUI.onSphere)
         {
             add.transform.position = new Vector3(-1000, 0, 0);
             delete.transform.position = new Vector3(-1000, 0, 0);
@@ -31,6 +31,6 @@ public class removeButtons : MonoBehaviour
                 sphereRender = spawnUI.selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
                 sphereRender.material.color = Color.white;
             }
-        }
+        }*/
     }
 }

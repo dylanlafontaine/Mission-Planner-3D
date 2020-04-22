@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 /// <summary>
@@ -36,10 +37,14 @@ public class Waypoints : MonoBehaviour
                 if (!deleteWaypoint(points[points.Count - 1]))
                     Debug.Log("Failed to delete waypoint");
 
-        // TO DO: Delete waypoint, edit waypoint, move waypoint
+        if (points.Count > 0)
+            if (Input.GetKey(KeyCode.I))
+                print(points[0].export());
 
-        // draw the line between the waypoint objects.
-        drawLine();
+                // TO DO: Delete waypoint, edit waypoint, move waypoint
+
+                // draw the line between the waypoint objects.
+                drawLine();
     }
 
     private void drawLine()
@@ -71,7 +76,7 @@ public class Waypoints : MonoBehaviour
         // Screen coordinate of the cursor.
         Vector3 mousePosition = Input.mousePosition;
         Vector3 mouseGeoLocation = OnlineMapsControlBase.instance.GetCoords(mousePosition);
-        mouseGeoLocation.z = 100;
+        //mouseGeoLocation.z = 100;
 
         // should create a new marker
         newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
@@ -85,8 +90,46 @@ public class Waypoints : MonoBehaviour
         OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
         marker.altitudeType = OnlineMapsAltitudeType.relative;
         marker.altitude = altitude;
+
         // create waypoint object and add it to list
         Waypoint point = new Waypoint(marker);
+        point.Number = pointCounter;
+        points.Add(point);
+
+        OnlineMaps.instance.Redraw();
+
+        return true;
+    }
+
+    public bool importWaypoint(int number, int frame, int command, decimal delay, decimal radius, decimal pass, decimal yaw, float latitude, float longitude, float altitude)
+    {
+        string commandS = Waypoint.intToCommand(command);
+
+        // Screen set pointer lat lon
+        Vector3 mouseGeoLocation = new Vector3(latitude, longitude);
+
+        // should create a new marker
+        newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
+        newSphere.transform.name = (pointCounter++).ToString();
+        newSphere.AddComponent<LineRenderer>();
+        newSphere.GetComponent<LineRenderer>().startWidth = 100;
+        newSphere.GetComponent<LineRenderer>().endWidth = 100;
+        Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
+        newSphereRenderer.enabled = true;
+
+        OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
+        marker.altitudeType = OnlineMapsAltitudeType.relative;
+        marker.altitude = altitude;
+
+        // create waypoint object and add it to list
+        Waypoint point = new Waypoint(marker);
+        point.Number = pointCounter;
+        point.Frame = frame;
+        point.Command = commandS;
+        point.Delay = delay;
+        point.Radius = radius;
+        point.Pass = pass;
+        point.Yaw = yaw;
         points.Add(point);
 
         OnlineMaps.instance.Redraw();
@@ -159,16 +202,16 @@ public class Waypoint
     /**********************************************************************************
      * CONSTRUCTOR
     ***********************************************************************************/
-    public OnlineMapsMarker3D Marker
+    public Waypoint(OnlineMapsMarker3D marker)
     {
-        get
-        {
-            return this._marker;
-        }
-        set
-        {
-            this._marker = value;
-        }
+        this._marker = marker;
+        this._number = 0;
+        this._frame = 0;
+        this._command = "WAYPOINT";
+        this._delay = (decimal) 0.0;
+        this._radius = (decimal)0.0;
+        this._pass = (decimal)0.0;
+        this._yaw = (decimal)0.0;
     }
 
 
@@ -263,7 +306,7 @@ public class Waypoint
             DO_MOUNT_CONTROL        205
             UNKOWN                  CAN SET TO WHATEVER VALUE YOU WANT
     */
-    Dictionary<string, int> Commands = new Dictionary<string, int> {
+    static Dictionary<string, int> Commands = new Dictionary<string, int> {
         {"WAYPOINT", 16},
         {"SPLINE_WAYPOINT", 82},
         {"LOITER_TURNS", 18},
@@ -312,6 +355,14 @@ public class Waypoint
     public int commandToInt()
     {
         return Commands[this._command];
+    }
+
+    public static string intToCommand(int comm)
+    {
+        foreach (KeyValuePair<string, int> iter in Commands) 
+            if (iter.Value == comm)
+                return (iter.Key);
+        return "WAYPOINT";
     }
 
     // PARAM 5
@@ -402,9 +453,16 @@ public class Waypoint
     // altitude, and more,
     private OnlineMapsMarker3D _marker;
 
-    public Waypoint(OnlineMapsMarker3D marker)
+    public OnlineMapsMarker3D Marker
     {
-        this._marker = marker;
+        get
+        {
+            return this._marker;
+        }
+        set
+        {
+            this._marker = value;
+        }
     }
 
 
@@ -418,8 +476,22 @@ public class Waypoint
     }
 
     // will return the string that will be written to the outfile.
-    public string buildLine ()
+    public string export ()
     {
-        return("a line of waypoint data");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append(this.Number.ToString() + "\t" + 
+            this.Placeholder0.ToString() + "\t" + 
+            this.Frame.ToString() + "\t" +
+            Waypoint.Commands[this.Command].ToString() + "\t" +
+            this.Delay.ToString() + "\t" +
+            this.Radius.ToString() + "\t" +
+            this.Pass.ToString() + "\t" + 
+            this.Yaw.ToString() + "\t" + 
+            this.Marker.position[0].ToString() + "\t" + 
+            this.Marker.position[1].ToString() + "\t" +
+            this.Marker.altitude.ToString() + "\t" +
+            this._placeholder1.ToString());
+
+        return (stringBuilder.ToString());
     }
 }
