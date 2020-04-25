@@ -58,10 +58,13 @@ public class spawnUI : MonoBehaviour
                     sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
                     sphereRender.material.color = Color.green;
                     ControlSphere.mySphere = hit.transform;
+                    Waypoints.addFlag = false;
+                    Waypoints.insertFlag = true;
                     Debug.Log("on sphere");
                 }
                 else
                 {
+                    Debug.Log("removing UI");
                     onSphere = false;
                     remove.removeUI();
                     remove.resetSphereStatus();

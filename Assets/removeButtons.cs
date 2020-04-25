@@ -57,6 +57,8 @@ public class removeButtons : MonoBehaviour
             spawnUI.selectedWaypoint = null;
             spawnUI.selectedSphere = null;
             Waypoints.moveFlag = false;
+            Waypoints.addFlag = true;
+            Waypoints.insertFlag = false;
         }
     }
 }

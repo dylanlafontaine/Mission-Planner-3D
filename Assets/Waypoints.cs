@@ -15,6 +15,8 @@ public class Waypoints : MonoBehaviour
     private int pointCounter = 0;
     private float timeElapsed = 0;
     public static bool moveFlag = false;
+    public static bool addFlag = true;
+    public static bool insertFlag = false;
     Renderer sphereRender;
 
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class Waypoints : MonoBehaviour
     void Update()
     {
         // add new waypoint
-        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P) && !moveFlag)
+        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P) && addFlag)
         {
             timeElapsed = Time.time * 1000;
             if (!addWaypoint((float)100.0))
@@ -38,6 +40,13 @@ public class Waypoints : MonoBehaviour
         {
             timeElapsed = Time.time * 1000;
             if (!moveWaypoint((float)100.0))
+                Debug.Log("Failed to move waypoint");
+        }
+
+        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P) && insertFlag)
+        {
+            timeElapsed = Time.time * 1000;
+            if (!insertWaypoint((float)100.0))
                 Debug.Log("Failed to move waypoint");
         }
 
@@ -170,6 +179,7 @@ public class Waypoints : MonoBehaviour
     public bool setMoveFlag(Waypoint selectedSphere)
     {
         moveFlag = true;
+        addFlag = false;
         sphereRender = selectedSphere.getGameObject().GetComponent(typeof(Renderer)) as Renderer;
         sphereRender.material.color = Color.blue;
         remove.removeUI();
@@ -203,6 +213,40 @@ public class Waypoints : MonoBehaviour
         point.Number = pointCounter;
         points[points.FindIndex(ind => ind.Equals(temp))] = point;
         deleteWaypoint(temp);
+
+
+        OnlineMaps.instance.Redraw();
+        remove.removeUI();
+        remove.resetSphereStatus();
+
+        return true;
+    }
+
+    public bool insertWaypoint(float altitude)
+    {
+        Debug.Log("inserting waypoint");
+        // Screen coordinate of the cursor.
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 mouseGeoLocation = OnlineMapsControlBase.instance.GetCoords(mousePosition);
+        //mouseGeoLocation.z = 100;
+
+        // should create a new marker
+        newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
+        newSphere.transform.name = (pointCounter++).ToString();
+        newSphere.AddComponent<LineRenderer>();
+        newSphere.GetComponent<LineRenderer>().startWidth = 100;
+        newSphere.GetComponent<LineRenderer>().endWidth = 100;
+        Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
+        newSphereRenderer.enabled = true;
+
+        OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
+        marker.altitudeType = OnlineMapsAltitudeType.relative;
+        marker.altitude = altitude;
+
+        // create waypoint object and add it to list
+        Waypoint point = new Waypoint(marker);
+        point.Number = pointCounter;
+        points.Insert(points.FindIndex(ind => ind.Equals(spawnUI.selectedWaypoint)) + 1, point);
 
 
         OnlineMaps.instance.Redraw();
