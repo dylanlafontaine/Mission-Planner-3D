@@ -11,24 +11,34 @@ public class Waypoints : MonoBehaviour
     public GameObject newSphere;
     public GameObject prefabSphere;
     public List<Waypoint> points = new List<Waypoint>();
+    private removeButtons remove;
     private int pointCounter = 0;
     private float timeElapsed = 0;
+    public static bool moveFlag = false;
+    Renderer sphereRender;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
     }
 
     // Update is called once per frame
     void Update()
     {
         // add new waypoint
-        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P))
+        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P) && !moveFlag)
         {
             timeElapsed = Time.time * 1000;
             if (!addWaypoint((float)100.0))
                 Debug.Log("Failed to add waypoint");
+        }
+
+        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P) && moveFlag)
+        {
+            timeElapsed = Time.time * 1000;
+            if (!moveWaypoint((float)100.0))
+                Debug.Log("Failed to move waypoint");
         }
 
         // delete last waypoint that was added
@@ -73,6 +83,7 @@ public class Waypoints : MonoBehaviour
     /// <returns>true upon success</returns>
     public bool addWaypoint(float altitude)
     {
+        Debug.Log("adding waypoint");
         // Screen coordinate of the cursor.
         Vector3 mousePosition = Input.mousePosition;
         Vector3 mouseGeoLocation = OnlineMapsControlBase.instance.GetCoords(mousePosition);
@@ -97,6 +108,8 @@ public class Waypoints : MonoBehaviour
         points.Add(point);
 
         OnlineMaps.instance.Redraw();
+        remove.removeUI();
+        remove.resetSphereStatus();
 
         return true;
     }
@@ -147,8 +160,55 @@ public class Waypoints : MonoBehaviour
         OnlineMapsMarker3DManager.RemoveItem(deletedPoint.Marker); // remove the marker
         points.Remove(deletedPoint); // remove from the points list
         Destroy(deletedPoint.getGameObject()); // destroy the game object within points.
+        remove.removeUI();
+        remove.resetSphereStatus();
 
         OnlineMaps.instance.Redraw();
+        return true;
+    }
+
+    public bool setMoveFlag(Waypoint selectedSphere)
+    {
+        moveFlag = true;
+        sphereRender = selectedSphere.getGameObject().GetComponent(typeof(Renderer)) as Renderer;
+        sphereRender.material.color = Color.blue;
+        remove.removeUI();
+        return true;
+    }
+
+    public bool moveWaypoint(float altitude)
+    {
+        Debug.Log("moving waypoint");
+        // Screen coordinate of the cursor.
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 mouseGeoLocation = OnlineMapsControlBase.instance.GetCoords(mousePosition);
+        //mouseGeoLocation.z = 100;
+
+        // should create a new marker
+        newSphere = Instantiate(prefabSphere, mouseGeoLocation, Quaternion.identity);
+        newSphere.transform.name = (pointCounter++).ToString();
+        newSphere.AddComponent<LineRenderer>();
+        newSphere.GetComponent<LineRenderer>().startWidth = 100;
+        newSphere.GetComponent<LineRenderer>().endWidth = 100;
+        Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
+        newSphereRenderer.enabled = true;
+
+        OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
+        marker.altitudeType = OnlineMapsAltitudeType.relative;
+        marker.altitude = altitude;
+
+        // create waypoint object and add it to list
+        Waypoint point = new Waypoint(marker);
+        Waypoint temp = spawnUI.selectedWaypoint;
+        point.Number = pointCounter;
+        points[points.FindIndex(ind => ind.Equals(temp))] = point;
+        deleteWaypoint(temp);
+
+
+        OnlineMaps.instance.Redraw();
+        remove.removeUI();
+        remove.resetSphereStatus();
+
         return true;
     }
 

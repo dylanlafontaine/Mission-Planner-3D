@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class spawnUI : MonoBehaviour
 {
-    public Button deleteButton, addButton, moveUp, moveDown;
+    public Button deleteButton, moveButton, moveUp, moveDown;
     public bool deleteInScreen;
     public static Transform selectedSphere;
     public static Waypoint selectedWaypoint;
@@ -13,6 +13,7 @@ public class spawnUI : MonoBehaviour
     public Renderer sphereRender;
     private bool isWaypoint;
     private Waypoints waypoints;
+    private removeButtons remove;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class spawnUI : MonoBehaviour
         deleteInScreen = false;
         onSphere = false;
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
+        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
     }
 
     // Update is called once per frame
@@ -44,11 +46,12 @@ public class spawnUI : MonoBehaviour
                 }
                 if (isWaypoint)
                 {
+                    Debug.Log("spawning UI");
                     selectedSphere = hit.transform;
                     deleteInScreen = true;
                     //Debug.Log("My object is clicked by mouse");
                     deleteButton.transform.position = new Vector3(Input.mousePosition.x - 50, Input.mousePosition.y, 0);
-                    addButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
+                    moveButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
                     moveUp.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
                     moveDown.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y - 50, 0);
                     onSphere = true;
@@ -60,6 +63,8 @@ public class spawnUI : MonoBehaviour
                 else
                 {
                     onSphere = false;
+                    remove.removeUI();
+                    remove.resetSphereStatus();
                 }
             }
             else
