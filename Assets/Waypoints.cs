@@ -51,19 +51,19 @@ public class Waypoints : MonoBehaviour
                 Debug.Log("Failed to move waypoint");
         }
 
-        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.R))
-        {
-            timeElapsed = Time.time * 1000;
-            if (!adjustAltitude((float)100.0, altitudeValue))
-                Debug.Log("Failed to move waypoint");
-        }
+        //if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.R))
+        //{
+        //    timeElapsed = Time.time * 1000;
+        //    if (!adjustAltitude(altitudeValue))
+        //        Debug.Log("Failed to move waypoint");
+        //}
 
-        if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.F))
-        {
-            timeElapsed = Time.time * 1000;
-            if (!adjustAltitude((float)100.0, -altitudeValue))
-                Debug.Log("Failed to move waypoint");
-        }
+        //if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.F))
+        //{
+        //    timeElapsed = Time.time * 1000;
+        //    if (!adjustAltitude(-altitudeValue))
+        //        Debug.Log("Failed to move waypoint");
+        //}
 
         // delete last waypoint that was added
         if (points.Count > 0)
@@ -275,46 +275,50 @@ public class Waypoints : MonoBehaviour
         return true;
     }
 
-    public bool adjustAltitude(float altitude, int alt)
+    public bool adjustAltitude(float altitude)
     {
 		Debug.Log("adjusting altitude of waypoint");
-        //Vector3 pos = spawnUI.selectedWaypoint.getGameObject().transform.position;
-		Vector3 pos = spawnUI.selectedWaypoint.Marker.position;
-		Debug.Log("original pos: " + pos);
-		pos.z += alt * 10; //the added *10 is just to view the change for debug purposes, will need to change this or global altitude at some point
-		Debug.Log("new pos: " + pos);
-		
-        // should create a new marker
-        newSphere = Instantiate(prefabSphere, pos, Quaternion.identity); //mouseGeoLocation instead of pos
-        newSphere.transform.name = (pointCounter++).ToString();
-        newSphere.AddComponent<LineRenderer>();
-        newSphere.GetComponent<LineRenderer>().startWidth = 100;
-        newSphere.GetComponent<LineRenderer>().endWidth = 100;
-        Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
-        newSphereRenderer.enabled = true;
-
-        OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(pos, newSphere); //mouseGeoLocation instead of pos
-        marker.altitudeType = OnlineMapsAltitudeType.relative;
-		Debug.Log("marker alt before: " + marker.altitude);
-		//Debug.Log("marker.lat: " + marker.position[0]);
-		//Debug.Log("marker.long: " + marker.position[1]);
-        marker.altitude = pos.z;
-		Debug.Log("marker alt after: " + marker.altitude);
-
-        // create waypoint object and add it to list
-        Waypoint point = new Waypoint(marker);
-		Debug.Log("point.alt: " + point.Marker.altitude);
-        Waypoint temp = spawnUI.selectedWaypoint;
-        point.Number = pointCounter;
-        points[points.FindIndex(ind => ind.Equals(temp))] = point;
-        deleteWaypoint(temp);
-		
-		//not sure if these are supposed to be added or not
-        //spawnUI.selectedWaypoint = point;
-        //(point.getGameObject().GetComponent(typeof(Renderer)) as Renderer).material.color = Color.green;
-
-        OnlineMaps.instance.Redraw();
+        spawnUI.selectedWaypoint.Marker.altitude += altitude;
+        spawnUI.selectedWaypoint.Marker.Update();
         remove.removeUI();
+        remove.resetSphereStatus();
+  //      //Vector3 pos = spawnUI.selectedWaypoint.getGameObject().transform.position;
+		//Vector3 pos = spawnUI.selectedWaypoint.Marker.position;
+		//Debug.Log("original pos: " + pos);
+		//pos.z += alt * 10; //the added *10 is just to view the change for debug purposes, will need to change this or global altitude at some point
+		//Debug.Log("new pos: " + pos);
+		
+  //      // should create a new marker
+  //      newSphere = Instantiate(prefabSphere, pos, Quaternion.identity); //mouseGeoLocation instead of pos
+  //      newSphere.transform.name = (pointCounter++).ToString();
+  //      newSphere.AddComponent<LineRenderer>();
+  //      newSphere.GetComponent<LineRenderer>().startWidth = 100;
+  //      newSphere.GetComponent<LineRenderer>().endWidth = 100;
+  //      Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
+  //      newSphereRenderer.enabled = true;
+
+  //      OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(pos, newSphere); //mouseGeoLocation instead of pos
+  //      marker.altitudeType = OnlineMapsAltitudeType.relative;
+		//Debug.Log("marker alt before: " + marker.altitude);
+		////Debug.Log("marker.lat: " + marker.position[0]);
+		////Debug.Log("marker.long: " + marker.position[1]);
+  //      marker.altitude = pos.z;
+		//Debug.Log("marker alt after: " + marker.altitude);
+
+  //      // create waypoint object and add it to list
+  //      Waypoint point = new Waypoint(marker);
+		//Debug.Log("point.alt: " + point.Marker.altitude);
+  //      Waypoint temp = spawnUI.selectedWaypoint;
+  //      point.Number = pointCounter;
+  //      points[points.FindIndex(ind => ind.Equals(temp))] = point;
+  //      deleteWaypoint(temp);
+		
+		////not sure if these are supposed to be added or not
+  //      //spawnUI.selectedWaypoint = point;
+  //      //(point.getGameObject().GetComponent(typeof(Renderer)) as Renderer).material.color = Color.green;
+
+  //      OnlineMaps.instance.Redraw();
+  //      remove.removeUI();
 
 		//also not sure if this is supposed to be added 
 		//remove.resetSphereStatus(); //might need to comment out this part

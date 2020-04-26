@@ -7,7 +7,8 @@ using UnityEngine.EventSystems;
 
 public class removeButtons : MonoBehaviour
 {
-    public Button delete, move, up, down;
+    public Button delete, move, up, down, altitude;
+    public InputField altInput;
     public Renderer sphereRender;
     private Waypoints waypoints;
 
@@ -46,6 +47,8 @@ public class removeButtons : MonoBehaviour
         move.transform.position = new Vector3(-1000, 0, 0);
         up.transform.position = new Vector3(-1000, 0, 0);
         down.transform.position = new Vector3(-1000, 0, 0);
+        altitude.transform.position = new Vector3(-1000, 0, 0);
+        altInput.transform.position = new Vector3(-1000, 0, 0);
     }
 
     public void resetSphereStatus()
