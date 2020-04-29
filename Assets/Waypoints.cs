@@ -278,7 +278,7 @@ public class Waypoints : MonoBehaviour
     public bool adjustAltitude(float altitude)
     {
 		Debug.Log("adjusting altitude of waypoint");
-        spawnUI.selectedWaypoint.Marker.altitude += altitude;
+        spawnUI.selectedWaypoint.Marker.altitude = altitude;
         spawnUI.selectedWaypoint.Marker.Update();
         remove.removeUI();
         remove.resetSphereStatus();
