@@ -7,28 +7,61 @@ using UnityEngine.EventSystems;
 
 public class removeButtons : MonoBehaviour
 {
-    public Button add, delete, up, down;
+    public Button delete, move, up, down, altitude;
+    public InputField altInput;
     public Renderer sphereRender;
+    private Waypoints waypoints;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!spawnUI.onSphere)
+        //if (Input.GetMouseButtonDown(0) && !CheckUIHover.BlockedByUI)
+        //{
+        //    RaycastHit hit;
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        //    if (!spawnUI.onSphere)
+        //    {
+        //        add.transform.position = new Vector3(-1000, 0, 0);
+        //        move.transform.position = new Vector3(-1000, 0, 0);
+        //        up.transform.position = new Vector3(-1000, 0, 0);
+        //        down.transform.position = new Vector3(-1000, 0, 0);
+        //        if (spawnUI.selectedSphere != null)
+        //        {
+        //            sphereRender = spawnUI.selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
+        //            sphereRender.material.color = Color.white;
+        //        }
+        //    }
+        //}
+    }
+
+    public void removeUI()
+    {
+        delete.transform.position = new Vector3(-1000, 0, 0);
+        move.transform.position = new Vector3(-1000, 0, 0);
+        up.transform.position = new Vector3(-1000, 0, 0);
+        down.transform.position = new Vector3(-1000, 0, 0);
+        altitude.transform.position = new Vector3(-1000, 0, 0);
+        altInput.transform.position = new Vector3(-1000, 0, 0);
+    }
+
+    public void resetSphereStatus()
+    {
+        if (spawnUI.selectedWaypoint != null)
         {
-            add.transform.position = new Vector3(-1000, 0, 0);
-            delete.transform.position = new Vector3(-1000, 0, 0);
-            up.transform.position = new Vector3(-1000, 0, 0);
-            down.transform.position = new Vector3(-1000, 0, 0);
-            if (spawnUI.selectedSphere != null)
-            {
-                sphereRender = spawnUI.selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
-                sphereRender.material.color = Color.white;
-            }
+            sphereRender = spawnUI.selectedWaypoint.getGameObject().GetComponent(typeof(Renderer)) as Renderer;
+            sphereRender.material.color = Color.white;
+            spawnUI.selectedWaypoint = null;
+            spawnUI.selectedSphere = null;
+            Waypoints.moveFlag = false;
+            Waypoints.addFlag = true;
+            Waypoints.insertFlag = false;
         }
     }
 }

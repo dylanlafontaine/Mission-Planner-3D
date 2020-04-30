@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class DeleteWaypoint : MonoBehaviour
+public class ChangeAltitude : MonoBehaviour
 {
-    public Button myButton;
-    private Waypoints waypoints;
-
     // Start is called before the first frame update
+    public InputField altInput;
+    public Button myButton;
+    public Waypoints waypoints;
+    public static double input = 0;
     void Start()
     {
         myButton.onClick.AddListener(TaskOnClick);
@@ -22,8 +24,8 @@ public class DeleteWaypoint : MonoBehaviour
         
     }
 
-    private void TaskOnClick()
+    void TaskOnClick()
     {
-        waypoints.deleteWaypoint(spawnUI.selectedWaypoint);
+        altInput.transform.position = myButton.transform.position;
     }
 }

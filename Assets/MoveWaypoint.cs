@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DeleteWaypoint : MonoBehaviour
+public class MoveWaypoint : MonoBehaviour
 {
     public Button myButton;
     private Waypoints waypoints;
@@ -24,6 +24,6 @@ public class DeleteWaypoint : MonoBehaviour
 
     private void TaskOnClick()
     {
-        waypoints.deleteWaypoint(spawnUI.selectedWaypoint);
+        waypoints.setMoveFlag(spawnUI.selectedWaypoint);
     }
 }
