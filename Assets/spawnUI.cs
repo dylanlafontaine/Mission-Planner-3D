@@ -74,7 +74,10 @@ public class spawnUI : MonoBehaviour
             }
             else
             {
+                Debug.Log("removing UI");
                 onSphere = false;
+                remove.removeUI();
+                remove.resetSphereStatus();
             }
         }
         if (selectedSphere == null)

@@ -9,6 +9,7 @@ public class help : MonoBehaviour
 {
     public Button myButton;
     public importExportPoints import;
+    public GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,22 @@ public class help : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0) && !CheckUIHover.BlockedByUI)
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.name != "Panel")
+                    panel.SetActive(false);
+
+            }
+            else
+            {
+                panel.SetActive(false);
+            }
+        }
     }
 
     void taskOnClick()

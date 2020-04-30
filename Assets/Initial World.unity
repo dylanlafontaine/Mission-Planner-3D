@@ -2001,7 +2001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -295, y: 90}
+  m_AnchoredPosition: {x: -1000, y: 90}
   m_SizeDelta: {x: 70, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679572800
@@ -4142,7 +4142,7 @@ MonoBehaviour:
     in the list of points\r\n-You can edit the altitude of a point by entering your
     desired altitude, and clicking the enter button TWICE\r\n-To move a point, click
     'move point' then place your mouse where you want the point to end up, and click
-    'p'\r\n\n\nHIDE THIS TEXT BY CLICKING THE HELP BUTTON AGAIN"
+    'p'\r\n\n\nHIDE THIS TEXT BY CLICKING OFF THE PANEL"
 --- !u!222 &1417948707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4351,7 +4351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -253, y: 129}
+  m_AnchoredPosition: {x: -1000, y: 129}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542864209
@@ -4635,6 +4635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myButton: {fileID: 1629623674}
   import: {fileID: 0}
+  panel: {fileID: 291116005}
 --- !u!1 &1679439579
 GameObject:
   m_ObjectHideFlags: 0
@@ -5333,7 +5334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -254, y: 170}
+  m_AnchoredPosition: {x: -1000, y: 170}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1884428152
@@ -5779,7 +5780,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -221, y: 90}
+  m_AnchoredPosition: {x: -1000, y: 90}
   m_SizeDelta: {x: 70, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943721003

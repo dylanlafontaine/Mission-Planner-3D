@@ -62,21 +62,22 @@ public class importExportPoints : MonoBehaviour
 	//help functions
 	public void Help()
 	{
-        Debug.Log("clicked");
-		if (!toggle)
-		{
-            Debug.Log("set true");
-			PopUp.SetActive(true);
-			//Background.SetActive(true);
-			toggle = true;
-		}
-		else
-		{
-            Debug.Log("set false");
-			PopUp.SetActive(false);
-			//Background.SetActive(false);
-			toggle = false;
-		}
+        //      Debug.Log("clicked");
+        //if (!toggle)
+        //{
+        //          Debug.Log("set true");
+        //	PopUp.SetActive(true);
+        //	//Background.SetActive(true);
+        //	toggle = true;
+        //}
+        //else
+        //{
+        //          Debug.Log("set false");
+        //	PopUp.SetActive(false);
+        //	//Background.SetActive(false);
+        //	toggle = false;
+        //}
+        PopUp.SetActive(true);
 	}
 
     public void Import()
