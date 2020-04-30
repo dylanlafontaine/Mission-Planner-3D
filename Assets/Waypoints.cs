@@ -289,6 +289,7 @@ public class Waypoints : MonoBehaviour
 		//pos.z += alt * 10; //the added *10 is just to view the change for debug purposes, will need to change this or global altitude at some point
 		//Debug.Log("new pos: " + pos);
 		
+<<<<<<< HEAD
   //      // should create a new marker
   //      newSphere = Instantiate(prefabSphere, pos, Quaternion.identity); //mouseGeoLocation instead of pos
   //      newSphere.transform.name = (pointCounter++).ToString();
@@ -313,6 +314,33 @@ public class Waypoints : MonoBehaviour
   //      point.Number = pointCounter;
   //      points[points.FindIndex(ind => ind.Equals(temp))] = point;
   //      deleteWaypoint(temp);
+=======
+        // should create a new marker
+        newSphere = Instantiate(prefabSphere, pos, Quaternion.identity); //mouseGeoLocation instead of pos
+        newSphere.transform.name = (pointCounter++).ToString();
+        newSphere.AddComponent<LineRenderer>();
+        newSphere.GetComponent<LineRenderer>().startWidth = 100;
+        newSphere.GetComponent<LineRenderer>().endWidth = 100;
+        Renderer newSphereRenderer = newSphere.GetComponent(typeof(Renderer)) as Renderer;
+        newSphereRenderer.enabled = true;
+
+        OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(pos, newSphere); //mouseGeoLocation instead of pos
+		//marker.altitudeType = OnlineMapsAltitudeType.absolute;
+        marker.altitudeType = OnlineMapsAltitudeType.relative;
+		Debug.Log("marker alt before: " + marker.altitude);
+		//Debug.Log("marker.lat: " + marker.position[0]);
+		//Debug.Log("marker.long: " + marker.position[1]);
+        marker.altitude = pos.z;
+		Debug.Log("marker alt after: " + marker.altitude);
+
+        // create waypoint object and add it to list
+        Waypoint point = new Waypoint(marker);
+		Debug.Log("point.alt: " + point.Marker.altitude);
+        Waypoint temp = spawnUI.selectedWaypoint;
+        point.Number = pointCounter;
+        points[points.FindIndex(ind => ind.Equals(temp))] = point;
+        deleteWaypoint(temp);
+>>>>>>> remotes/origin/Help_Button
 		
 		////not sure if these are supposed to be added or not
   //      //spawnUI.selectedWaypoint = point;
