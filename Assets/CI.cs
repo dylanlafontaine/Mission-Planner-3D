@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 class CIScript
 {
      static void PerformBuild ()
@@ -11,3 +13,4 @@ class CIScript
          BuildPipeline.BuildPlayer(buildPlayerOptions);
      }
 }
+#endif
