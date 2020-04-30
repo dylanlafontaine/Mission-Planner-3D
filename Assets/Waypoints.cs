@@ -294,6 +294,7 @@ public class Waypoints : MonoBehaviour
         newSphereRenderer.enabled = true;
 
         OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(pos, newSphere); //mouseGeoLocation instead of pos
+		//marker.altitudeType = OnlineMapsAltitudeType.absolute;
         marker.altitudeType = OnlineMapsAltitudeType.relative;
 		Debug.Log("marker alt before: " + marker.altitude);
 		//Debug.Log("marker.lat: " + marker.position[0]);

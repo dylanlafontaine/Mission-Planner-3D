@@ -22,6 +22,16 @@ public class importExportPoints : MonoBehaviour
     GeoCoordinate origin;
 
     private Waypoints points;
+	
+	
+	//help button
+	public UnityEngine.UI.Button HelpButton;
+	public bool toggle = false;
+	//public UnityEngine.UI.Button Exit;
+	public GameObject PopUp;
+	public GameObject Background;
+	
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +44,13 @@ public class importExportPoints : MonoBehaviour
         //points = ((MasterController)FindObjectOfType(typeof(MasterController))).points;
 
         points = (Waypoints)FindObjectOfType(typeof(Waypoints));
+		
+		
+		//help functions
+		PopUp.SetActive(false);
+		Background.SetActive(false);
+		HelpButton.onClick.AddListener(Help);
+		//Exit.onClick.AddListener(Leave);
     }
 
     // Update is called once per frame
@@ -41,6 +58,23 @@ public class importExportPoints : MonoBehaviour
     {
     
     }
+	
+	//help functions
+	public void Help()
+	{
+		if (!toggle)
+		{
+			PopUp.SetActive(true);
+			Background.SetActive(true);
+			toggle = true;
+		}
+		else
+		{
+			PopUp.SetActive(false);
+			Background.SetActive(false);
+			toggle = false;
+		}
+	}
 
     public void Import()
     {
