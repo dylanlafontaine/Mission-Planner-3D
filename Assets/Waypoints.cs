@@ -230,6 +230,7 @@ public class Waypoints : MonoBehaviour
         Waypoint point = new Waypoint(marker);
         Waypoint temp = spawnUI.selectedWaypoint;
         point.Number = pointCounter;
+        point.Marker.altitude = temp.Marker.altitude;
         points[points.FindIndex(ind => ind.Equals(temp))] = point;
         deleteWaypoint(temp);
 
