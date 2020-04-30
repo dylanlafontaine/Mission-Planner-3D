@@ -29,7 +29,7 @@ public class importExportPoints : MonoBehaviour
 	public bool toggle = false;
 	//public UnityEngine.UI.Button Exit;
 	public GameObject PopUp;
-	public GameObject Background;
+	//public GameObject Background;
 	
 	
     // Start is called before the first frame update
@@ -47,8 +47,8 @@ public class importExportPoints : MonoBehaviour
 		
 		
 		//help functions
-		PopUp.SetActive(false);
-		Background.SetActive(false);
+		PopUp.SetActive(true);
+		//Background.SetActive(false);
 		HelpButton.onClick.AddListener(Help);
 		//Exit.onClick.AddListener(Leave);
     }
@@ -62,16 +62,19 @@ public class importExportPoints : MonoBehaviour
 	//help functions
 	public void Help()
 	{
+        Debug.Log("clicked");
 		if (!toggle)
 		{
+            Debug.Log("set true");
 			PopUp.SetActive(true);
-			Background.SetActive(true);
+			//Background.SetActive(true);
 			toggle = true;
 		}
 		else
 		{
+            Debug.Log("set false");
 			PopUp.SetActive(false);
-			Background.SetActive(false);
+			//Background.SetActive(false);
 			toggle = false;
 		}
 	}
