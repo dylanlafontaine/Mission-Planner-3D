@@ -51,7 +51,7 @@ public class importExportPoints : MonoBehaviour
         string[] words = { };
 
         //this launches the windows file explorer
-        string path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+        string path = EditorUtility.OpenFilePanel("", "", "");
 
         // convert string to System.IO.StreamReader for reading file  
         System.IO.StreamReader file =
