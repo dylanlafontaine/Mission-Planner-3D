@@ -24,6 +24,7 @@ public class MoveWaypoint : MonoBehaviour
 
     private void TaskOnClick()
     {
+
         waypoints.setMoveFlag(spawnUI.selectedWaypoint);
     }
 }

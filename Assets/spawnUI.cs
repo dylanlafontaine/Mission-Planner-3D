@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class spawnUI : MonoBehaviour
 {
-    public Button deleteButton, moveButton, moveUp, moveDown, changeAltitude;
+    public Button deleteButton, moveButton, moveUp, moveDown, changeAltitude, command;
     public bool deleteInScreen;
     public static Transform selectedSphere;
     public static Waypoint selectedWaypoint;
@@ -54,7 +54,8 @@ public class spawnUI : MonoBehaviour
                     moveButton.transform.position = new Vector3(Input.mousePosition.x + 50, Input.mousePosition.y, 0);
                     moveUp.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 50, 0);
                     moveDown.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y - 50, 0);
-                    changeAltitude.transform.position = new Vector3(Input.mousePosition.x + 25, Input.mousePosition.y - 25, 0);
+                    command.transform.position = new Vector3(Input.mousePosition.x + 25, Input.mousePosition.y - 25, 0);
+                    changeAltitude.transform.position = new Vector3(Input.mousePosition.x - 25, Input.mousePosition.y + 25, 0);
                     onSphere = true;
                     sphereRender = selectedSphere.GetComponent(typeof(Renderer)) as Renderer;
                     sphereRender.material.color = Color.green;
