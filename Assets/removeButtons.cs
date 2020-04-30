@@ -7,15 +7,17 @@ using UnityEngine.EventSystems;
 
 public class removeButtons : MonoBehaviour
 {
-    public Button delete, move, up, down, altitude;
+    public Button delete, move, up, down, altitude, command;
     public InputField altInput;
     public Renderer sphereRender;
     private Waypoints waypoints;
+    public Command rcommand;
 
     // Start is called before the first frame update
     void Start()
     {
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
+        rcommand = (Command)FindObjectOfType(typeof(Command));
     }
 
     // Update is called once per frame
@@ -43,12 +45,15 @@ public class removeButtons : MonoBehaviour
 
     public void removeUI()
     {
+        Debug.Log("remove called");
         delete.transform.position = new Vector3(-1000, 0, 0);
+        command.transform.position = new Vector3(-1000, 0, 0);
         move.transform.position = new Vector3(-1000, 0, 0);
         up.transform.position = new Vector3(-1000, 0, 0);
         down.transform.position = new Vector3(-1000, 0, 0);
         altitude.transform.position = new Vector3(-1000, 0, 0);
         altInput.transform.position = new Vector3(-1000, 0, 0);
+        rcommand.cleanUpCommandUI();
     }
 
     public void resetSphereStatus()

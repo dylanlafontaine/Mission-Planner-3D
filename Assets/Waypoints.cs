@@ -442,7 +442,7 @@ public class Waypoint
             DO_MOUNT_CONTROL        205
             UNKOWN                  CAN SET TO WHATEVER VALUE YOU WANT
     */
-    static Dictionary<string, int> Commands = new Dictionary<string, int> {
+    public static Dictionary<string, int> Commands = new Dictionary<string, int> {
         {"WAYPOINT", 16},
         {"SPLINE_WAYPOINT", 82},
         {"LOITER_TURNS", 18},
