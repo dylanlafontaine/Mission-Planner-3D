@@ -140,7 +140,7 @@ public class Waypoints : MonoBehaviour
         return true;
     }
 
-    public bool importWaypoint(int number, int frame, int command, decimal delay, decimal radius, decimal pass, decimal yaw, float latitude, float longitude, float altitude)
+    public bool importWaypoint(int number, int frame, int command, decimal delay, decimal radius, decimal pass, decimal yaw, float longitude, float latitude, float altitude)
     {
         string commandS = Waypoint.intToCommand(command);
 
@@ -623,8 +623,8 @@ public class Waypoint
             this.Radius.ToString() + "\t" +
             this.Pass.ToString() + "\t" + 
             this.Yaw.ToString() + "\t" + 
-            this.Marker.position[0].ToString() + "\t" + 
-            this.Marker.position[1].ToString() + "\t" +
+            this.Marker.position[1].ToString() + "\t" + 
+            this.Marker.position[0].ToString() + "\t" +
             this.Marker.altitude.ToString() + "\t" +
             this._placeholder1.ToString());
 

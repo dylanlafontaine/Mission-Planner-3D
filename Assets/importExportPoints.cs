@@ -123,8 +123,8 @@ public class importExportPoints : MonoBehaviour
                 nums[5], // radius
                 nums[6], // pass
                 nums[7], // yaw
-                (float)nums[8], // lat
-                (float)nums[9], // lon
+                (float)nums[8], // long
+                (float)nums[9], // lat
                 (float)nums[10] //altitude
                 );
 
@@ -137,8 +137,8 @@ public class importExportPoints : MonoBehaviour
                 nums[5].ToString() + "\t" + // radius
                 nums[6].ToString() + "\t" + // pass
                 nums[7].ToString() + "\t" + // yaw
-                nums[8].ToString() + "\t" + // lat
-                nums[9].ToString() + "\t" + // lon
+                nums[8].ToString() + "\t" + // long
+                nums[9].ToString() + "\t" + // lat
                 nums[10].ToString() //altitude
                 );
             /*//lat = nums[8]
