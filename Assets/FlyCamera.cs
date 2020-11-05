@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+///<summary>
+///NOTE Dylan L. -- This script is redundant since Online Maps v3 has a built-in movement system for the map
+///3rd Party script written by Windexglow from "https://forum.unity.com/threads/fly-cam-simple-cam-script.67042/". This script allows the camera to swivel
+///when the user holds the right mouse button
+///</summary>
 public class FlyCamera : MonoBehaviour
 {
 
@@ -42,11 +47,12 @@ public class FlyCamera : MonoBehaviour
 
     void Update()
     {
+        //If the right mouse button is held then the mouse position is retrieved
         if (Input.GetMouseButtonDown(1))
         {
             lastMouse = Input.mousePosition; // $CTK reset when we begin
         }
-
+        //If the right mouse button is held down then update the camera view
         if (!rotateOnlyIfMousedown ||
             (rotateOnlyIfMousedown && Input.GetMouseButton(1)))
         {

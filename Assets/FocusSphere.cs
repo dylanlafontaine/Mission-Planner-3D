@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+///<summary>
+///NOTE Dylan L. -- I don't believe this class is used anywhere
+///</summary>
 public class FocusSphere : MonoBehaviour
 {
     private Camera cam;
