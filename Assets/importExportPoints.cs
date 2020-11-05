@@ -11,7 +11,9 @@ using System.Text;
 using System.IO;
 using UnityEditor;
 
-
+///<summary>
+///importExportPoints -- Handles the behavior for importing waypoints from a file and for exporting waypoints to a file
+///</summary>
 public class importExportPoints : MonoBehaviour
 {
     public UnityEngine.UI.Button importButton;
@@ -24,25 +26,30 @@ public class importExportPoints : MonoBehaviour
     private Waypoints points;
 	
 	
-	//help button
+	//Help button
 	public UnityEngine.UI.Button HelpButton;
 	public bool toggle = false;
 	//public UnityEngine.UI.Button Exit;
 	public GameObject PopUp;
 	//public GameObject Background;
 	
-	
-    // Start is called before the first frame update
+	///<summary>
+    ///Start -- Is called before the first frame update
+    ///</summary>
     void Start()
     {
+        //Creates a new Online Maps v3 GeoCoordinate object
         origin = new GeoCoordinate();
+        //Sets the origin to latitude of 46.7 and longitude to -117.2 which is Pullman, Washington
         origin.Latitude = (decimal)46.7302976970894;
         origin.Longitude = (decimal)-117.168948054314;
 
+        //Adds event listeners to the Import and Export button
         importButton.onClick.AddListener(Import);
         exportButton.onClick.AddListener(Export);
         //points = ((MasterController)FindObjectOfType(typeof(MasterController))).points;
 
+        //Sets points to the Waypoints object 
         points = (Waypoints)FindObjectOfType(typeof(Waypoints));
 		
 		
@@ -53,13 +60,15 @@ public class importExportPoints : MonoBehaviour
 		//Exit.onClick.AddListener(Leave);
     }
 
-    // Update is called once per frame
+    //Update -- Is called once per frame
     void Update()
     {
     
     }
 	
-	//help functions
+    ///<summary>
+	///Help -- Help functions that aren't used
+    ///</summary>
 	public void Help()
 	{
         //      Debug.Log("clicked");
@@ -80,6 +89,9 @@ public class importExportPoints : MonoBehaviour
         PopUp.SetActive(true);
 	}
 
+    ///<summary>
+    ///Import -- Handles the importation of waypoints from a file
+    ///</summary>
     public void Import()
     {
         
@@ -104,6 +116,7 @@ public class importExportPoints : MonoBehaviour
 
         print("Imported: ");
 
+        //Imports waypoints from the file line by line 
         while ((line = file.ReadLine()) != null)
         {
             words = Regex.Split(line, "\t");
@@ -170,6 +183,10 @@ public class importExportPoints : MonoBehaviour
         print("#points: " + points.points.Count);
     }
 
+    ///<summary>
+    ///NOTE Dylan L. -- This function isn't set up to work properly yet
+    ///Export -- Will Export the waypoints to a telemetry file
+    ///</summary>
     public void Export()
     {
         // init variables
