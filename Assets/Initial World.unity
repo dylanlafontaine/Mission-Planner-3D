@@ -14,19 +14,19 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_Fog: 1
+  m_FogColor: {r: 0.9058824, g: 0.9725491, b: 1, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogStart: 700
+  m_LinearFogEnd: 1500
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 93d43b027dc267444af7412b8e607dbd, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.8016131, g: 0.8978529, b: 0.9572665, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -807,6 +807,7 @@ GameObject:
   - component: {fileID: 309739135}
   - component: {fileID: 309739134}
   - component: {fileID: 309739147}
+  - component: {fileID: 309739148}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -1002,7 +1003,7 @@ MonoBehaviour:
   zoomInOnDoubleClick: 1
   zoomMode: 0
   zoomSensitivity: 1
-  activeCamera: {fileID: 0}
+  activeCamera: {fileID: 963194227}
   marker2DMode: 0
   marker2DSize: 100
   marker3DManager: {fileID: 0}
@@ -1011,7 +1012,7 @@ MonoBehaviour:
   checkMarker2DVisibility: 0
   elevationResolution: 32
   markerMaterial: {fileID: 0}
-  markerShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 3}
+  markerShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
   sizeInScene: {x: 1024, y: 1024}
   colliderType: 1
   drawingsGameObject: {fileID: 0}
@@ -1072,7 +1073,7 @@ MonoBehaviour:
   defaultTileTexture: {fileID: 0}
   dispatchEvents: 1
   emptyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  height: 1024
+  height: 512
   labels: 1
   language: en
   lockRedraw: 0
@@ -1097,8 +1098,8 @@ MonoBehaviour:
   width: 1024
   _activeTypeSettings: 12Tile version1513845
   _zoom: 2
-  latitude: 0
-  longitude: 0.17578125
+  latitude: 40.5090565347752
+  longitude: -17.9989029798676
 --- !u!4 &309739146
 Transform:
   m_ObjectHideFlags: 0
@@ -1144,6 +1145,26 @@ MonoBehaviour:
     min: 16.951723
     maxLimit: 20
     minLimit: 1
+--- !u!114 &309739148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309739133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8a7feb1b2b7b343982e411904dad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapboxKey: 
+  countX: 3
+  countY: 3
+  positionYOffset: -5
+  zoomOffset: 3
+  shader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
+  renderQueueOffset: 100
+  resolution: 32
 --- !u!1 &379096228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,12 +3019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4eb28fef2e56d2499e05d8cf7f02f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSpeed: 100
-  shiftAdd: 250
-  maxShift: 1000
-  camSens: 0.25
-  rotateOnlyIfMousedown: 1
-  movementStaysFlat: 1
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
