@@ -18,12 +18,6 @@ public class ChangeAltitude : MonoBehaviour
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void TaskOnClick()
     {
         altInput.transform.position = myButton.transform.position;

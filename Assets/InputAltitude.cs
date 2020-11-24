@@ -9,13 +9,13 @@ public class InputAltitude : MonoBehaviour
 {
     public InputField myButton;
     public Waypoints waypoints;
-    public removeButtons remove;
+    public RemoveButtons remove;
     // Start is called before the first frame update
     void Start()
     {
         //myButton.onValueChange.AddListener(delegate { UpdateAltitude(myButton.text); });
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
-        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
+        remove = (RemoveButtons)FindObjectOfType(typeof(RemoveButtons));
     }
 
     // Update is called once per frame

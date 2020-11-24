@@ -13,19 +13,13 @@ public class Command : MonoBehaviour
     private Waypoints waypoints;
     public GameObject selectedSphere;
     public Waypoint selectedWaypoint;
-    public removeButtons remove;
+    public RemoveButtons remove;
     // Start is called before the first frame update
     void Start()
     {
         command.onClick.AddListener(TaskOnClick);
-        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
+        remove = (RemoveButtons)FindObjectOfType(typeof(RemoveButtons));
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void TaskOnClick()
@@ -36,12 +30,12 @@ public class Command : MonoBehaviour
         //cancel.transform.position = new Vector3(-221, 90, 0);
         //inputField.transform.position = new Vector3(-253, 129, 0);
         dropdown.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 60, 0);
-        int index = dropdown.options.FindIndex((i) => { return i.text.Equals(spawnUI.selectedWaypoint.Command); });
+        int index = dropdown.options.FindIndex((i) => { return i.text.Equals(SpawnUI.selectedWaypoint.Command); });
         dropdown.value = index;
         submit.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y - 30, 0);
         cancel.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y - 60, 0);
         inputField.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y + 30, 0);
-        inputField.text = spawnUI.selectedWaypoint.Delay.ToString();
+        inputField.text = SpawnUI.selectedWaypoint.Delay.ToString();
     }
 
     public void cleanUpCommandUI()

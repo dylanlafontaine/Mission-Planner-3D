@@ -12,13 +12,13 @@ public class DelaySubmit : MonoBehaviour
     public Command command;
     public Waypoints waypoints;
     public Dropdown dropdown;
-    public removeButtons remove;
+    public RemoveButtons remove;
     // Start is called before the first frame update
     void Start()
     {
         command = (Command)FindObjectOfType(typeof(Command));
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
-        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
+        remove = (RemoveButtons)FindObjectOfType(typeof(RemoveButtons));
     }
 
     // Update is called once per frame
@@ -31,24 +31,24 @@ public class DelaySubmit : MonoBehaviour
     {
         command.cleanUpCommandUI();
         float parse;
-        Debug.Log(spawnUI.selectedWaypoint.getGameObject().name);
+        Debug.Log(SpawnUI.selectedWaypoint.getGameObject().name);
         Debug.Log("input: " + inputField.textComponent.text);
         if (float.TryParse(inputField.text, out parse))
         {
-            if (spawnUI.selectedWaypoint == null)
+            if (SpawnUI.selectedWaypoint == null)
                 Debug.Log("null");
             Debug.Log("succeeded parse");
-            spawnUI.selectedWaypoint.Delay = (decimal)parse;
+            SpawnUI.selectedWaypoint.Delay = (decimal)parse;
         }
         else
         {
-            if (spawnUI.selectedWaypoint == null)
+            if (SpawnUI.selectedWaypoint == null)
                 Debug.Log("null");
             Debug.Log("failed parse");
-            spawnUI.selectedWaypoint.Delay = (decimal)0.0;
+            SpawnUI.selectedWaypoint.Delay = (decimal)0.0;
         }
         Debug.Log(dropdown.captionText.text);
-        spawnUI.selectedWaypoint.Command = dropdown.captionText.text;
+        SpawnUI.selectedWaypoint.Command = dropdown.captionText.text;
         remove.resetSphereStatus();
     }
 }

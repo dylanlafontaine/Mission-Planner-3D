@@ -12,12 +12,12 @@ public class DelayCancel : MonoBehaviour
     public Command command;
     public Waypoints waypoints;
     public Dropdown dropdown;
-    public removeButtons remove;
+    public RemoveButtons remove;
     // Start is called before the first frame update
     void Start()
     {
         command = (Command)FindObjectOfType(typeof(Command));
-        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
+        remove = (RemoveButtons)FindObjectOfType(typeof(RemoveButtons));
     }
 
     // Update is called once per frame

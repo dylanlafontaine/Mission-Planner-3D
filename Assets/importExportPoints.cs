@@ -14,7 +14,7 @@ using UnityEditor;
 ///<summary>
 ///importExportPoints -- Handles the behavior for importing waypoints from a file and for exporting waypoints to a file
 ///</summary>
-public class importExportPoints : MonoBehaviour
+public class ImportExportPoints : MonoBehaviour
 {
     public UnityEngine.UI.Button importButton;
     public UnityEngine.UI.Button exportButton;
@@ -59,33 +59,12 @@ public class importExportPoints : MonoBehaviour
 		HelpButton.onClick.AddListener(Help);
 		//Exit.onClick.AddListener(Leave);
     }
-
-    //Update -- Is called once per frame
-    void Update()
-    {
-    
-    }
 	
     ///<summary>
 	///Help -- Help functions that aren't used
     ///</summary>
 	public void Help()
 	{
-        //      Debug.Log("clicked");
-        //if (!toggle)
-        //{
-        //          Debug.Log("set true");
-        //	PopUp.SetActive(true);
-        //	//Background.SetActive(true);
-        //	toggle = true;
-        //}
-        //else
-        //{
-        //          Debug.Log("set false");
-        //	PopUp.SetActive(false);
-        //	//Background.SetActive(false);
-        //	toggle = false;
-        //}
         PopUp.SetActive(true);
 	}
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class spawnUI : MonoBehaviour
+public class SpawnUI : MonoBehaviour
 {
     public Button deleteButton, moveButton, moveUp, moveDown, changeAltitude, command;
     public bool deleteInScreen;
@@ -13,7 +13,7 @@ public class spawnUI : MonoBehaviour
     public Renderer sphereRender;
     private bool isWaypoint;
     private Waypoints waypoints;
-    private removeButtons remove;
+    private RemoveButtons remove;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class spawnUI : MonoBehaviour
         deleteInScreen = false;
         onSphere = false;
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
-        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
+        remove = (RemoveButtons)FindObjectOfType(typeof(RemoveButtons));
     }
 
     // Update is called once per frame

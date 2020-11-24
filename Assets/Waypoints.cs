@@ -19,7 +19,7 @@ public class Waypoints : MonoBehaviour
     //points is initialized to a new List of Waypoint Objects
     public List<Waypoint> points = new List<Waypoint>();
     //remove is not initialized here
-    private removeButtons remove;
+    private RemoveButtons remove;
     //pointCounter is initialized to 0
     private int pointCounter = 0;
     //timeElapsed is initialized to 0
@@ -37,7 +37,7 @@ public class Waypoints : MonoBehaviour
     void Start()
     {
         //When the program first starts remove is set to the removeButtons Object
-        remove = (removeButtons)FindObjectOfType(typeof(removeButtons));
+        remove = (RemoveButtons)FindObjectOfType(typeof(RemoveButtons));
     }
 
     //NOTE From Dylan L. -- I believe most conditionals that happen in this Update function should be put into their own functions
@@ -308,7 +308,7 @@ public class Waypoints : MonoBehaviour
         //Creates a Waypoint object and adds it to the points list
         Waypoint point = new Waypoint(marker);
         //Creates a temp Waypoint object that is set to the waypoint the user selected for updating the new waypoint with the old one's values
-        Waypoint temp = spawnUI.selectedWaypoint;
+        Waypoint temp = SpawnUI.selectedWaypoint;
         point.Number = pointCounter;
         point.Marker.altitude = temp.Marker.altitude;
         points[points.FindIndex(ind => ind.Equals(temp))] = point;
@@ -355,7 +355,7 @@ public class Waypoints : MonoBehaviour
         //Creates a Waypoint object and adds it to the points list
         Waypoint point = new Waypoint(marker);
         point.Number = pointCounter;
-        points.Insert(points.FindIndex(ind => ind.Equals(spawnUI.selectedWaypoint)) + 1, point);
+        points.Insert(points.FindIndex(ind => ind.Equals(SpawnUI.selectedWaypoint)) + 1, point);
 
         //Online Maps v3 Map is re-rendered since a new point has been added to it
         OnlineMaps.instance.Redraw();
@@ -374,9 +374,9 @@ public class Waypoints : MonoBehaviour
     {
 		Debug.Log("adjusting altitude of waypoint");
         //The selected waypoint's Online Maps v3 Marker altitude is set to the user-specified input altitude
-        spawnUI.selectedWaypoint.Marker.altitude = altitude;
+        SpawnUI.selectedWaypoint.Marker.altitude = altitude;
         //The updated waypoint is updated on the Online Maps v3 Map since its values were changed
-        spawnUI.selectedWaypoint.Marker.Update();
+        SpawnUI.selectedWaypoint.Marker.Update();
         //Removes the UI attached to the waypoint selected
         remove.removeUI();
         remove.resetSphereStatus();

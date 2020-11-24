@@ -34,21 +34,15 @@ public class MoveUp : MonoBehaviour
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void moveUp()
     {
         //calls the moveWaypointUp function defined in the Waypoints class
-        waypoints.moveWaypointUp(spawnUI.selectedWaypoint);
+        waypoints.moveWaypointUp(SpawnUI.selectedWaypoint);
     }
 
     private void moveDown()
     {
         //calls the moveWaypointDown function defined in the Waypoints class
-        waypoints.moveWaypointDown(spawnUI.selectedWaypoint);
+        waypoints.moveWaypointDown(SpawnUI.selectedWaypoint);
     }
 }

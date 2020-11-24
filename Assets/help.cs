@@ -8,17 +8,17 @@ using UnityEngine.EventSystems;
 ///<summary>
 ///help -- This class defines behavior for closing the Help display
 ///</summary>
-public class help : MonoBehaviour
+public class Help : MonoBehaviour
 {
     public Button myButton;
-    public importExportPoints import;
+    public ImportExportPoints import;
     public GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("test");
         //When the app starts import becomes the script importExportPoints
-        import = (importExportPoints)FindObjectOfType(typeof(importExportPoints));
+        import = (ImportExportPoints)FindObjectOfType(typeof(ImportExportPoints));
         //Attaches an event listener to the Help button that calls the taskOnClick function
         myButton.onClick.AddListener(taskOnClick);
     }
@@ -51,7 +51,7 @@ public class help : MonoBehaviour
 
     void taskOnClick()
     {
-        //NOTE Dylan L. -- This is not needed to render the Help display
+        //Sets the help PopUp component to true so it renders properly
         import.Help();
     }
 }

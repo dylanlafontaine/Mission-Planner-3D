@@ -17,13 +17,9 @@ public class DeleteWaypoint : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void TaskOnClick()
     {
-        waypoints.deleteWaypoint(spawnUI.selectedWaypoint);
+        waypoints.deleteWaypoint(SpawnUI.selectedWaypoint);
     }
 }

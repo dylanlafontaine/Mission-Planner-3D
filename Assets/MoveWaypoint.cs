@@ -16,15 +16,9 @@ public class MoveWaypoint : MonoBehaviour
         waypoints = (Waypoints)FindObjectOfType(typeof(Waypoints));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void TaskOnClick()
     {
 
-        waypoints.setMoveFlag(spawnUI.selectedWaypoint);
+        waypoints.setMoveFlag(SpawnUI.selectedWaypoint);
     }
 }
