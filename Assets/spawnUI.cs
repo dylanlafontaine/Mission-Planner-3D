@@ -15,6 +15,8 @@ public class SpawnUI : MonoBehaviour
     private Waypoints waypoints;
     private RemoveButtons remove;
 
+    private bool doSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +37,16 @@ public class SpawnUI : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 isWaypoint = false;
-                foreach(var point in waypoints.points)
+                if (hit.collider.gameObject.tag == "Marker")
                 {
-                    if (point.getGameObject().name == hit.transform.name)
+                    foreach (var point in waypoints.points)
                     {
-                        isWaypoint = true;
-                        selectedWaypoint = point;
-                        break;
+                        if (point.getGameObject().name == hit.transform.name)
+                        {
+                            isWaypoint = true;
+                            selectedWaypoint = point;
+                            break;
+                        }
                     }
                 }
                 if (isWaypoint)

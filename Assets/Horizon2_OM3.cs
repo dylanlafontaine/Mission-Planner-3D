@@ -2,6 +2,9 @@ using System;
 using System.Text;
 using UnityEngine;
 
+///<summary>
+///A 3rd Party script created by the maker of OnlineMaps to render a horizon so there is no map border visible
+///</summary>
 public class Horizon2_OM3 : MonoBehaviour
 {
     /// <summary>
