@@ -7,9 +7,11 @@ public class DragX : MonoBehaviour
 {
     private Waypoint marker;
     private Waypoints waypoints;
+    private ContentListDisplay display;
 
     void Start() {
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
+        display = (ContentListDisplay)FindObjectOfType<ContentListDisplay>();
     }
 
     void OnBecameInvisible() {
@@ -29,14 +31,12 @@ public class DragX : MonoBehaviour
                break;
            }
        }
-       //OnlineMapsMarker3DManager
        marker.Marker.GetPosition(out longitude, out lat);
        Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z + transform.position.z);
        Vector3 geoMousePosition = OnlineMapsControlBase.instance.GetCoords(mousePosition);
+       
        marker.Marker.SetPosition(geoMousePosition.x, lat);
-       //Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-       //transform.position = objPosition;
-       //sphere.isKinematic = true;
+       display.Prime(waypoints.points);
    }
 
    private void OnMouseUp() {

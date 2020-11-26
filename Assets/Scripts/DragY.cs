@@ -8,9 +8,11 @@ public class DragY : MonoBehaviour
     private Waypoint marker;
     private Waypoints waypoints;
     private float zCoord;
+    private ContentListDisplay display;
 
     void Start() {
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
+        display = (ContentListDisplay)FindObjectOfType<ContentListDisplay>();
     }
 
    private void OnMouseDrag() {
@@ -31,6 +33,7 @@ public class DragY : MonoBehaviour
        }
        Debug.Log(marker.Marker.altitude);
        OnlineMaps.instance.Redraw();
+       display.Prime(waypoints.points);
    }
 
    private void RestrictTilt() {

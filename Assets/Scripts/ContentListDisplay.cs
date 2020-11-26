@@ -8,28 +8,37 @@ public class ContentListDisplay : MonoBehaviour
     public Transform targetTransform;
     public ContentListItemDisplay itemDisplayPrefab;
     private Waypoints waypoints;
-    private List<Waypoint> currentList;
+    private int currentPointsCount;
 
     // Start is called before the first frame update
 
-    void Start() {
+    void Start()
+    {
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
-        currentList = waypoints.points;
+        currentPointsCount = waypoints.points.Count;
     }
 
-    void Update() {
+    void Update()
+    {
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
-        if (!currentList.Equals(waypoints.points)) {
-            foreach (Transform child in targetTransform) {
-                Destroy(child.gameObject);
-            }
-            currentList = waypoints.points;
+        if (currentPointsCount != waypoints.points.Count)
+        {
+            currentPointsCount = waypoints.points.Count;
             Prime(waypoints.points);
         }
     }
 
-    public void Prime(List<Waypoint> waypoints) {
-        foreach (Waypoint waypoint in waypoints) {
+    public void Prime(List<Waypoint> waypoints)
+    {
+        foreach (Transform child in targetTransform)
+        {
+            if (child.name != "ContentListHeader")
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        foreach (Waypoint waypoint in waypoints)
+        {
             ContentListItemDisplay display = (ContentListItemDisplay)Instantiate(itemDisplayPrefab);
             display.transform.SetParent(targetTransform, false);
             display.InitWaypointDisplay(waypoint);
