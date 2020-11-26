@@ -159,6 +159,7 @@ public class Waypoints : MonoBehaviour
 
         //Creates a new OnlineMapsMarker3D Object from the mouse's retrieved GeoLocation and attaches it to the sphere
         OnlineMapsMarker3D marker = OnlineMapsMarker3DManager.CreateItem(mouseGeoLocation, newSphere);
+        Destroy(newSphere.gameObject);
         //Sets the altitude type to be relative and sets the new Waypoint's altitude to the default of 100
         marker.altitudeType = OnlineMapsAltitudeType.relative;
         marker.altitude = altitude;
@@ -247,6 +248,10 @@ public class Waypoints : MonoBehaviour
 
         //Redraws the Online Maps v3 Map since it has been updated
         OnlineMaps.instance.Redraw();
+        pointCounter--;
+        for (int i = 0; i <= pointCounter; i++) {
+            points[i].Number = i + 1;
+        }
         return true;
     }
 
