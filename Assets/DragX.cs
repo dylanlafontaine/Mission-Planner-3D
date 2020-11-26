@@ -12,6 +12,12 @@ public class DragX : MonoBehaviour
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
     }
 
+    void OnBecameInvisible() {
+        if (OnlineMapsTileSetControl.instance.allowUserControl == false) {
+            OnlineMapsTileSetControl.instance.allowUserControl = true;
+        }
+    }
+
    private void OnMouseDrag() {
        double longitude, lat;
        string parentName;

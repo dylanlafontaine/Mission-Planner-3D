@@ -25,12 +25,14 @@ public class ContentListItemDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (waypoint != null) {
+        if (waypoint != null)
+        {
             InitWaypointDisplay(waypoint);
         }
     }
 
-    public void InitWaypointDisplay(Waypoint waypoint) {
+    public void InitWaypointDisplay(Waypoint waypoint)
+    {
         double latitude, longitude;
         this.waypoint = waypoint;
         waypoint.Marker.GetPosition(out latitude, out longitude);

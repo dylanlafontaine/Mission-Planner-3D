@@ -21,7 +21,7 @@ public class ContentListDisplay : MonoBehaviour
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
         if (currentWaypointsLength != waypoints.points.Count) {
             foreach (Transform child in targetTransform) {
-                Destroy(child);
+                Destroy(child.gameObject);
             }
             currentWaypointsLength = waypoints.points.Count;
             Prime(waypoints.points);
