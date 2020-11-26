@@ -4096,18 +4096,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766856243}
   m_CullTransparentMesh: 0
+--- !u!1 &774245499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1403528685837982859, guid: 13b1c08277cd32e4bb2c3448173854fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1289639518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &774245500 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
     type: 3}
   m_PrefabInstance: {fileID: 1289639518}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 774245499}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &774245501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774245499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eae9aed7bad4ea409de8c7555d37e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointNum: {fileID: 692575919}
 --- !u!1 &782982044
 GameObject:
   m_ObjectHideFlags: 0
@@ -6173,6 +6192,61 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 774245500}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 774245501}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeAltitude
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.InputField, UnityEngine.UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403528685837982856, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 774245500}
     - target: {fileID: 1403528686495592002, guid: 13b1c08277cd32e4bb2c3448173854fb,
         type: 3}
       propertyPath: m_AnchorMin.y
