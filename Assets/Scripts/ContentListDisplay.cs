@@ -8,22 +8,22 @@ public class ContentListDisplay : MonoBehaviour
     public Transform targetTransform;
     public ContentListItemDisplay itemDisplayPrefab;
     private Waypoints waypoints;
-    private int currentWaypointsLength;
+    private List<Waypoint> currentList;
 
     // Start is called before the first frame update
 
     void Start() {
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
-        currentWaypointsLength = waypoints.points.Count;
+        currentList = waypoints.points;
     }
 
     void Update() {
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
-        if (currentWaypointsLength != waypoints.points.Count) {
+        if (!currentList.Equals(waypoints.points)) {
             foreach (Transform child in targetTransform) {
                 Destroy(child.gameObject);
             }
-            currentWaypointsLength = waypoints.points.Count;
+            currentList = waypoints.points;
             Prime(waypoints.points);
         }
     }
