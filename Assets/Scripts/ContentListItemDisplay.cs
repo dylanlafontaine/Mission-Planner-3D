@@ -35,7 +35,7 @@ public class ContentListItemDisplay : MonoBehaviour
     {
         double latitude, longitude;
         this.waypoint = waypoint;
-        waypoint.Marker.GetPosition(out latitude, out longitude);
+        waypoint.Marker.GetPosition(out longitude, out latitude);
         waypointNum.text = waypoint.Number.ToString();
         input1.text = "0";
         input1.interactable = false;
