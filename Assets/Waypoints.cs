@@ -174,7 +174,6 @@ public class Waypoints : MonoBehaviour
         remove.removeUI();
         //The status of the sphere is reset
         remove.resetSphereStatus();
-
         return true;
     }
 
