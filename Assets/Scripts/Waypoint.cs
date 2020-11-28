@@ -17,7 +17,7 @@ public class Waypoint
         this._frame = 0;
         this._command = "WAYPOINT";
         this._delay = (decimal) 0.0;
-        this._radius = (decimal)0.0;
+        this._radius = (decimal)1.0;
         this._pass = (decimal)0.0;
         this._yaw = (decimal)0.0;
     }
