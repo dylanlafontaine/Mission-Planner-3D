@@ -44,6 +44,7 @@ public class DragX : MonoBehaviour
         }
         OnlineMapsTileSetControl.instance.allowUserControl = false;
         OnlineMapsControlBase.instance.dragMarker = marker.Marker;
+        OnlineMapsControlBase.instance.markerParent = transform.parent.gameObject;
         OnlineMapsControlBase.instance.lockXAxis = true;
     }
 
