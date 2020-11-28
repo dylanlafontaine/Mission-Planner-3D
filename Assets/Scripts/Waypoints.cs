@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 //NOTE Dylan L. -- This file has two classes in it which is bad OOP Practice
 //NOTE Dylan L. -- I have no idea why every function returns a boolean value. I don't believe it is used anywhere
@@ -16,6 +17,7 @@ public class Waypoints : MonoBehaviour
     public GameObject newSphere;
     //prefabSphere is initialized to the MasterSphere GameObject which is a template for all spheres that are spawned.
     public GameObject prefabSphere;
+    public InputField defaultAltitudeInput;
     //points is initialized to a new List of Waypoint Objects
     public List<Waypoint> points = new List<Waypoint>();
     //remove is not initialized here
@@ -50,7 +52,7 @@ public class Waypoints : MonoBehaviour
         if (Time.time * 1000 - timeElapsed > 250 && Input.GetKey(KeyCode.P) && addFlag)
         {
             timeElapsed = Time.time * 1000;
-            if (!addWaypoint((float)100.0))
+            if (!addWaypoint(float.Parse(defaultAltitudeInput.text)))
                 Debug.Log("Failed to add waypoint");
         }
 

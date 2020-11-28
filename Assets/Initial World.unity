@@ -5172,6 +5172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSphere: {fileID: 0}
   prefabSphere: {fileID: 1585922404}
+  defaultAltitudeInput: {fileID: 1907322623}
 --- !u!114 &963194234
 MonoBehaviour:
   m_ObjectHideFlags: 0
