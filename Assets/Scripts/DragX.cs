@@ -2,44 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class DragX : MonoBehaviour
 {
     private Waypoint marker;
     private Waypoints waypoints;
     private ContentListDisplay display;
+    private MarkerCollided detectCollisionScript;
+    public GameObject markerCollider;
+    private double longitude, latitude;
+    private Vector3 geoMousePosition;
+    private bool lockMovement;
 
-    void Start() {
+    void Start()
+    {
         waypoints = (Waypoints)FindObjectOfType<Waypoints>();
         display = (ContentListDisplay)FindObjectOfType<ContentListDisplay>();
     }
 
-    void OnBecameInvisible() {
-        if (OnlineMapsTileSetControl.instance.allowUserControl == false) {
+
+    void OnBecameInvisible()
+    {
+        if (OnlineMapsTileSetControl.instance.allowUserControl == false)
+        {
             OnlineMapsTileSetControl.instance.allowUserControl = true;
         }
     }
 
-   private void OnMouseDrag() {
-       double longitude, lat;
-       string parentName;
-       OnlineMapsTileSetControl.instance.allowUserControl = false;
-       parentName = transform.parent.name;
-       foreach (var point in waypoints.points) {
-           if (point.getGameObject().name == parentName) {
-               marker = point;
-               break;
-           }
-       }
-       marker.Marker.GetPosition(out longitude, out lat);
-       Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z + transform.position.z);
-       Vector3 geoMousePosition = OnlineMapsControlBase.instance.GetCoords(mousePosition);
-       
-       marker.Marker.SetPosition(geoMousePosition.x, lat);
-       display.Prime(waypoints.points);
-   }
+    private void OnMouseDrag()
+    {
+        string parentName;
+        parentName = transform.parent.name;
+        foreach (var point in waypoints.points)
+        {
+            if (point.getGameObject().name == parentName)
+            {
+                marker = point;
+                break;
+            }
+        }
+        OnlineMapsTileSetControl.instance.allowUserControl = false;
+        OnlineMapsControlBase.instance.dragMarker = marker.Marker;
+        OnlineMapsControlBase.instance.lockXAxis = true;
+    }
 
-   private void OnMouseUp() {
-       OnlineMapsTileSetControl.instance.allowUserControl = true;
-   }
+    private void OnMouseUp()
+    {
+        OnlineMapsControlBase.instance.lockXAxis = false;
+        OnlineMapsTileSetControl.instance.allowUserControl = true;
+        lockMovement = false;
+    }
 }

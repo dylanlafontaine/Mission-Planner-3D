@@ -165,6 +165,7 @@ public class Waypoints : MonoBehaviour
         //Sets the altitude type to be relative and sets the new Waypoint's altitude to the default of 100
         marker.altitudeType = OnlineMapsAltitudeType.relative;
         marker.altitude = altitude;
+        marker.isDraggable = true;
 
         //Creates a Waypoint object and adds it to the points list
         Waypoint point = new Waypoint(marker);
