@@ -46,6 +46,7 @@ public class DragX : MonoBehaviour
         OnlineMapsControlBase.instance.dragMarker = marker.Marker;
         OnlineMapsControlBase.instance.markerParent = transform.parent.gameObject;
         OnlineMapsControlBase.instance.lockXAxis = true;
+        display.Prime(waypoints.points);
     }
 
     private void OnMouseUp()

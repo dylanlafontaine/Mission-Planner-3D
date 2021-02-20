@@ -45,6 +45,7 @@ public class DragZ : MonoBehaviour
         OnlineMapsTileSetControl.instance.allowUserControl = false;
         OnlineMapsControlBase.instance.dragMarker = marker.Marker;
         OnlineMapsControlBase.instance.lockYAxis = true;
+        display.Prime(waypoints.points);
     }
 
     private void OnMouseUp()
