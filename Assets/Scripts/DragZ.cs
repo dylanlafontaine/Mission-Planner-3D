@@ -27,6 +27,7 @@ public class DragZ : MonoBehaviour
         if (OnlineMapsTileSetControl.instance.allowUserControl == false)
         {
             OnlineMapsTileSetControl.instance.allowUserControl = true;
+            OnlineMapsControlBase.instance.lockYAxis = false;
         }
     }
 
@@ -44,6 +45,7 @@ public class DragZ : MonoBehaviour
         }
         OnlineMapsTileSetControl.instance.allowUserControl = false;
         OnlineMapsControlBase.instance.dragMarker = marker.Marker;
+        OnlineMapsControlBase.instance.markerParent = transform.parent.gameObject;
         OnlineMapsControlBase.instance.lockYAxis = true;
         display.Prime(waypoints.points);
     }

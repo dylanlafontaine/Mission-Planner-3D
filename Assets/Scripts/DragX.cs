@@ -27,6 +27,7 @@ public class DragX : MonoBehaviour
         if (OnlineMapsTileSetControl.instance.allowUserControl == false)
         {
             OnlineMapsTileSetControl.instance.allowUserControl = true;
+            OnlineMapsControlBase.instance.lockXAxis = false;
         }
     }
 
