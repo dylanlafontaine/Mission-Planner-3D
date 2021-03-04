@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1233,17 +1233,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 149.99994
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 100.000015
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
@@ -1608,6 +1608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markerParent: {fileID: 0}
+  collisionObj: {fileID: 0}
   lockXAxis: 0
   lockYAxis: 0
   activeTexture: {fileID: 0}
@@ -3274,17 +3275,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 150
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99997
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
@@ -3934,17 +3935,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 150
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99997
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 469b2f2e70bb7984fa931bfe717548cd,
         type: 3}
@@ -4541,8 +4542,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.75
+  m_Height: 2.75
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &782982046
@@ -4600,7 +4601,7 @@ Transform:
   m_GameObject: {fileID: 782982044}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.1400009, y: 0, z: 0}
-  m_LocalScale: {x: 0.10000005, y: 0.7500004, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.75, z: 0.25}
   m_Children:
   - {fileID: 262604758}
   m_Father: {fileID: 1585922409}
@@ -10070,8 +10071,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.75
+  m_Height: 2.75
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1842648136
@@ -10129,7 +10130,7 @@ Transform:
   m_GameObject: {fileID: 1842648134}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 1.1700001}
-  m_LocalScale: {x: 0.1, y: 0.7500004, z: 0.10000005}
+  m_LocalScale: {x: 0.25, y: 0.7500004, z: 0.25}
   m_Children:
   - {fileID: 1382145311}
   m_Father: {fileID: 1585922409}
@@ -10497,8 +10498,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.75
+  m_Height: 2.75
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1887166883
@@ -10556,7 +10557,7 @@ Transform:
   m_GameObject: {fileID: 1887166881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.144, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.75, z: 0.1}
+  m_LocalScale: {x: 0.25, y: 0.75, z: 0.25}
   m_Children:
   - {fileID: 936231994}
   m_Father: {fileID: 1585922409}

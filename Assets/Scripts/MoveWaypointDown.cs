@@ -17,7 +17,10 @@ public class MoveWaypointDown : MonoBehaviour
     public void HandleMoveDown() {
         foreach (Waypoint waypoint in waypoints.points) {
             if (waypoint.Number == int.Parse(waypointNum.text)) {
+                //waypointNumText = waypointNum.text;
                 waypoints.moveWaypointUp(waypoint);
+                waypointNum.text = "0";
+                OnlineMaps.instance.Redraw();
                 break;
             }
         }
