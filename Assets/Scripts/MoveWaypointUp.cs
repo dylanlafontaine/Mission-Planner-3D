@@ -15,9 +15,10 @@ public class MoveWaypointUp : MonoBehaviour
     }
 
     public void HandleMoveUp() {
+        int waypointListIndex;
         foreach (Waypoint waypoint in waypoints.points) {
             if (waypoint.Number == int.Parse(waypointNum.text)) {
-                waypoints.moveWaypointDown(waypoint);
+                //waypoints.moveWaypointDown(waypoint);
                 break;
             }
         }

@@ -30,7 +30,7 @@ public class Waypoint
      * PARAMS ordered left to right as seen in mission planner output file for waypoints
      * 
     ************************************************************************************/
-    //PARAM 1
+
     //Waypoint number in order of creation (0 is home point, counting starts at 1)
     private int _number;
 
@@ -46,7 +46,7 @@ public class Waypoint
         }
     }
 
-    //PARAM 2
+
     //IDK BUT THIS VALUE IS ALWAYS 0
     // -> homebutton value here is 1
     private int _placeholder0 = 0;
@@ -59,7 +59,7 @@ public class Waypoint
         }
     }
 
-    //PARAM 3
+
     //Frame - 3 possible outpoints referring to point's position
     // (absolute = 0, relative = 3, terrain = 10)
     // -> homebutton default value is 0
@@ -77,7 +77,7 @@ public class Waypoint
         }
     }
 
-    //PARAM 4
+
     //Command - many options, important seem to be takeoff, land, waypoint
     // this also affects the next few arguments, especially delay / radius / pass / yaw?
     // I also believe these change based on what setting you are in, i.e copter / plane / etc...
