@@ -15,6 +15,7 @@ public class Waypoint
         this._marker = marker;
         this._number = 0;
         this._frame = 0;
+        this._commandCode = 16;
         this._command = "WAYPOINT";
         this._delay = (decimal) 0.0;
         this._radius = (decimal)1.0;
@@ -116,35 +117,49 @@ public class Waypoint
     */
     public static Dictionary<string, int> Commands = new Dictionary<string, int> {
         {"WAYPOINT", 16},
-        {"SPLINE_WAYPOINT", 82},
+        {"LOITER_UNLIM", 17},
         {"LOITER_TURNS", 18},
         {"LOITER_TIME", 19},
-        {"LOITER_UNLIM", 17},
         {"RETURN_TO_LAUNCH", 20},
         {"LAND", 21},
         {"TAKEOFF", 22},
+        {"SPLINE_WAYPOINT", 82},
+        {"GUIDED_ENABLE", 92}, 
         {"DELAY", 93},
-        {"GUIDED_ENABLE", 92},
         {"PAYLOAD_PLACE", 94},
-        {"DO_GUIDED_LIMITS", 222},
-        {"DO_SET_ROI", 201},
         {"CONDITION_DELAY", 112},
         {"CONDITION_CHANGE_ALT", 113},
         {"CONDITION_DISTANCE", 114},
         {"CONDITION_YAW", 115},
         {"DO_JUMP", 177},
         {"DO_CHANGE_SPEEDS", 178},
-        {"DO_GRIPPER", 211},
-        {"DO_PARACHUTE", 208},
-        {"DO_SET_CAM_TRIGG_DIST", 206},
         {"DO_SET_RELAY", 181},
         {"DO_SET_SERVO", 183},
         {"DO_REPEAT_SERVO", 184},
+        {"DO_SET_ROI", 201},
         {"DO_DIGICAM_CONFIGURE", 202},
         {"DO_DIGICAM_CONTROL", 203},
         {"DO_MOUNT_CONTROL", 205},
+        {"DO_SET_CAM_TRIGG_DIST", 206},
+        {"DO_PARACHUTE", 208},
+        {"DO_GRIPPER", 211},
+        {"DO_GUIDED_LIMITS", 222},
         {"UNKOWN", 999}
     };
+
+    private int _commandCode;
+
+    public int CommandCode
+    {
+        get
+        {
+            return this._commandCode;
+        }
+        set
+        {
+            this._commandCode = value;
+        }
+    }
 
     private string _command;
 
