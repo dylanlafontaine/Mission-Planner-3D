@@ -104,6 +104,7 @@ public class OnlineMapsAdjustToScreen : MonoBehaviour
 
     private void Update()
     {
-        if (screenWidth != Screen.width || screenHeight != Screen.height) ResizeMap();
+        //if (screenWidth != Screen.width || screenHeight != Screen.height) ResizeMap();
+        ResizeMap();
     }
 }

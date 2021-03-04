@@ -1351,6 +1351,7 @@ public class OnlineMaps : MonoBehaviour, ISerializationCallbackReceiver, IOnline
         if (redrawOnPlay) allowRedraw = true;
         needRedraw = true;
         _zoom = CheckMapSize(_zoom);
+        OnlineMaps.instance.SetPositionAndZoom(-17, 0, 3);
     }
 
     private void StartBuffer()

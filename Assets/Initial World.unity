@@ -1554,7 +1554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjustTo: 3
   adjustToGameObject: {fileID: 0}
-  distance: 1000
+  distance: 5000
   maxRotationX: 80
   rotation: {x: 0, y: 0}
   speed: {x: 1, y: 1}
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfSize: 0
-  useMaxSide: 1
+  useMaxSide: 0
 --- !u!114 &309739142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,6 +1608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   markerParent: {fileID: 0}
+  collisionObj: {fileID: 0}
   lockXAxis: 0
   lockYAxis: 0
   activeTexture: {fileID: 0}
@@ -1631,7 +1632,7 @@ MonoBehaviour:
   elevationResolution: 32
   markerMaterial: {fileID: 0}
   markerShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
-  sizeInScene: {x: 1024, y: 1024}
+  sizeInScene: {x: 2048, y: 2048}
   colliderType: 1
   drawingsGameObject: {fileID: 0}
   drawingMode: 0
@@ -1692,7 +1693,7 @@ MonoBehaviour:
   dispatchEvents: 1
   emptyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   height: 512
-  labels: 1
+  labels: 0
   language: en
   lockRedraw: 0
   needRedraw: 1
@@ -1714,7 +1715,7 @@ MonoBehaviour:
   useProxy: 1
   useSoftwareJPEGDecoder: 0
   width: 1024
-  _activeTypeSettings: 12Tile version1513845
+  _activeTypeSettings: 12Tile version1513894
   _zoom: 2
   latitude: 40.5090565347752
   longitude: -17.9989029798676
@@ -5088,7 +5089,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 4794.3584
+  far clip plane: 34819.098
   field of view: 60
   orthographic: 0
   orthographic size: 5

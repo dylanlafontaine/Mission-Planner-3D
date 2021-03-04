@@ -40,6 +40,7 @@ public class Waypoints : MonoBehaviour
     {
         //When the program first starts remove is set to the removeButtons Object
         remove = (RemoveButtons)FindObjectOfType(typeof(RemoveButtons));
+        OnlineMaps.instance.zoomRange = new OnlineMapsRange(1, 20);
     }
 
     //NOTE From Dylan L. -- I believe most conditionals that happen in this Update function should be put into their own functions
