@@ -1084,6 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648580c31111aaa4b9eed316f0b9aea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypointListNum: {fileID: 0}
   waypointNum: {fileID: 0}
   commandDropdown: {fileID: 0}
   input1: {fileID: 0}

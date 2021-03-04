@@ -30,6 +30,15 @@ public class Waypoint
      * PARAMS ordered left to right as seen in mission planner output file for waypoints
      * 
     ************************************************************************************/
+    private int _i;
+    public int I {
+        get {
+            return this._i;
+        }
+        set {
+            this._i = value;
+        }
+    }
     //PARAM 1
     //Waypoint number in order of creation (0 is home point, counting starts at 1)
     private int _number;
