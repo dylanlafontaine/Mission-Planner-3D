@@ -40,7 +40,7 @@ public abstract class OnlineMapsControlBaseDynamicMesh : OnlineMapsControlBase3D
     /// <summary>
     /// Size of the map in the scene
     /// </summary>
-    public Vector2 sizeInScene = new Vector2(1024, 1024);
+    public Vector2 sizeInScene = new Vector2(1024, 1024); 
 
     /// <summary>
     /// Does the collider contain elevations?
