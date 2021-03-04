@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ContentListItemDisplay : MonoBehaviour
 {
+    public Text waypointListNum;
     public Text waypointNum;
     public Dropdown commandDropdown;
     public InputField input1;
@@ -27,16 +28,18 @@ public class ContentListItemDisplay : MonoBehaviour
     {
         if (waypoint != null)
         {
-            InitWaypointDisplay(waypoint);
+            InitWaypointDisplay(waypoint, 0);
         }
     }
 
-    public void InitWaypointDisplay(Waypoint waypoint)
+    public void InitWaypointDisplay(Waypoint waypoint, int i)
     {
         double latitude, longitude;
         this.waypoint = waypoint;
         waypoint.Marker.GetPosition(out longitude, out latitude);
         waypointNum.text = waypoint.Number.ToString();
+        waypointNum.gameObject.SetActive(false);
+        waypointListNum.text = i.ToString();
         input1.text = "0";
         input1.interactable = false;
         input2.text = "0";

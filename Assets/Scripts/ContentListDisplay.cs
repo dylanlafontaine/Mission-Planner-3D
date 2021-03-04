@@ -30,6 +30,7 @@ public class ContentListDisplay : MonoBehaviour
 
     public void Prime(List<Waypoint> waypoints)
     {
+        int i = 0;
         foreach (Transform child in targetTransform)
         {
             if (child.name != "ContentListHeader")
@@ -39,9 +40,10 @@ public class ContentListDisplay : MonoBehaviour
         }
         foreach (Waypoint waypoint in waypoints)
         {
+            i++;
             ContentListItemDisplay display = (ContentListItemDisplay)Instantiate(itemDisplayPrefab);
             display.transform.SetParent(targetTransform, false);
-            display.InitWaypointDisplay(waypoint);
+            display.InitWaypointDisplay(waypoint, i);
         }
     }
 }
