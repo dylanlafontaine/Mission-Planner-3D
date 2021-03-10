@@ -73,7 +73,7 @@ public class ImportExportPoints : MonoBehaviour
     ///</summary>
     public void Import()
     {
-        
+        /*
         string line;
         int lineNum = 1;
         decimal[] nums = new decimal[20];
@@ -133,7 +133,7 @@ public class ImportExportPoints : MonoBehaviour
                 nums[9].ToString() + "\t" + // lat
                 nums[10].ToString() //altitude
                 );
-            /*//lat = nums[8]
+            /*//*lat = nums[8]
             newPoint.Latitude = nums[8];
             //long = nums[9]
             newPoint.Longitude = nums[9];
@@ -153,13 +153,14 @@ public class ImportExportPoints : MonoBehaviour
             Renderer newSphereRenderer = point.GetComponent(typeof(Renderer)) as Renderer;
             newSphereRenderer.enabled = true;
             points.Add(point);
-            Debug.Log("");*/
+            Debug.Log("");*//*
             Array.Clear(words, 0, 11);
             lineNum++;
         }
         file.Close();
         Debug.Log("Up and running");
         print("#points: " + points.points.Count);
+        */
     }
 
     ///<summary>
@@ -168,6 +169,7 @@ public class ImportExportPoints : MonoBehaviour
     ///</summary>
     public void Export()
     {
+        /*
         // init variables
         string firstLine; // stores the first line
         string secondLine; // stores second line
@@ -204,6 +206,6 @@ public class ImportExportPoints : MonoBehaviour
             print(point.export());
         }
         inFile.Close();
-        outFile.Close();
+        outFile.Close();*/
     }
 }
