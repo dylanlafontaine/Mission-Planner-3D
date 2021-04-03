@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 2300313332
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: eef99442d3342e0f9501ef983fd446db
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7859cd501ea75098bcf7e53f1b477c26
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MapboxSDK/Mapbox/Textures/loadinggrid.png
+- Assets/MapboxSDK/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/traffic4.png
+- Assets/MapboxSDK/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/trafficNorm4.png
+Dependencies: []

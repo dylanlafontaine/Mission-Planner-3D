@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 915524077
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e7a474ac4d8f0c92286ae508be7ed5ea
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fdf6c57a251b9f6ec27bdd2fe01b033c
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/SampleFramework/Core/CustomHands/Models/RightHandAnimator.controller
+- Assets/Oculus/SampleFramework/Core/CustomHands/Models/LeftHandAnimator.controller
+Dependencies:
+- D:/Users/Dylan/Documents/WSU/Fall 2020/421/HuginMugin Team/Mission-Planner-3D-Copy/OVRAssetBundles/OVRMasterBundle/asset_fbx0

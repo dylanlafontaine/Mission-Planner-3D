@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 209230150
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fbe81a4799f9862488107104fe410164
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 22357172b8cea85847937e8f62d0c077
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/MapboxSDK/Mapbox/Examples/2_AstronautGame/AstronautGame/Road/RoadMaterial.mat
+- Assets/Oculus/SampleFramework/Core/CustomHands/Materials/Hands_solid.mat
+Dependencies:
+- D:/Users/Dylan/Documents/WSU/Fall 2020/421/HuginMugin Team/Mission-Planner-3D-Copy/OVRAssetBundles/OVRMasterBundle/asset_png0

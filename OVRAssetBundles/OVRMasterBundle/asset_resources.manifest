@@ -1,0 +1,464 @@
+ManifestFileVersion: 0
+CRC: 2591903917
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 39a48bffebc74962bb4dd9747eb81eb0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bb1440b4b15816b4a2f9b1f8a82c6b41
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 102
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dd8aacc1880ff504d9531b4d61c86458, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 324a61621a4444024b4a9423715bd22b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9c39c383c96521a4083f7339972619c7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 75f4a424246980d46a214433149ef222, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ad074644ff568a14187a3690cfbd7534, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 742344d451cea414d878bf6ae3951a8e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 73a4653526c970849afac4be5c5930ba, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 48879146f3ce9fb4abc113a9a2bb8e0a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c331d4375e95e4050aadbf5ed3492bba, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: efa163296ae7840cb80b9e3beb5f0857, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2705215ac5b84b70bacc50632be6e391, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0c96e6ca6f8915940b5a184409597ca6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 13ade7ea2a146442b9575619cf724737, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e5d9ef4c9a5f1410ea3cf247b3917654, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 22805dac1b8933d49b89c409a8903cde, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f9b2b4cc337b3479a9f4365ea51ff65c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ba99666da3af044c0ae878f372ea4115, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ab2114bdc8544297b417dfefe9f1e410, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 25f09effe9db3dd4e9e825475d698ca3, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_diffuse_roughness_2048.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Materials/StatueOfLibertyBody.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Textures/FantasyRoughness.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/commercial-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/MakiUiPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_base.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/picnic-site-15.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Prefabs/CoitTower.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/hairdresser-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/zoo-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Materials/RealisticSideMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/heliport-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/SimpleCityIcon.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/monument-15.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/DefaultPoiLabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/star-stroked-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/danger-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticSideAO.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/aquarium-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/ColorIcon.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/bicycle-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/TransparentGreyMaterial.mat
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_diffuse_roughness_256.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/library-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/fuel-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Materials/ColorSideMaterial.mat
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface-Mobile.shader
+- Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/basketball-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/MakiPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/dog-park-15.png
+- Assets/MapboxSDK/Mapbox/Resources/Mapbox/PrefabScreens/WorldScaleAR.gif
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/blood-bank-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/doctor-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticSideAlbedo.png
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_PC_SingleComponent.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Assets/MapboxFloatingHollowPin.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/gaming-15.png
+- Assets/Oculus/VR/Resources/OVRMRUnlitTransparent.shader
+- Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_normal_2048.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/industry-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_detailMask_1.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/information-15.png
+- Assets/Resources/OVRBuildConfig.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/car-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/triangle-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/telephone-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/museum-15.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Modifiers/ReplaceGlobalHeroStructuresModifier.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/MapboxBlue.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/roadblock-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/pharmacy-15.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-nightlife.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/amusement-park-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/FantasyIcon.png
+- Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Selector.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/beer-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets/Atlas/DarkAtlasInfo.asset
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Meshes/TransamericaPyramid.fbx
+- Assets/MapboxSDK/Mapbox/Resources/Mapbox/PrefabScreens/CitySimulator.gif
+- Assets/MapboxSDK/UnityARInterface/Resources/YUVMaterial.mat
+- Assets/MapboxSDK/UnityARInterface/Resources/Materials/ARBackground.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Materials/MapboxStylesRoofsPerRenderer.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/mountain-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasRoofs_detailMask_1.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/cinema-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/3DPoiMarker.prefab
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Prefabs/SalesForceTower.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/parking-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/residential-community-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/airfield-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Materials/DefaultSideMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/rail-light-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/teahouse-15.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/NightlifePoiLabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/attraction-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/restaurant-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/airport-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/BuildingWallSlice.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/triangle-stroked-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/ModerateTrafficMat.mat
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/FoodPoiLabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/aerialway-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/clothing-store-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/circle-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/post-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Atlas/SimpleAtlasInfo.asset
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_Mobile_Loader.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets/Materials/LightTopMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/bakery-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets/Materials/DarkTopMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/drinking-water-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Materials/RealisticTopMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Prefabs/OneWorldTradeCenter.prefab
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Materials/HeroStructureDefault.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/shop-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Atlas/ColorAtlasInfo.asset
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-transportation.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Prefabs/EmpireStateBuilding.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/SeamlessRoadTexture.jpg
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Palettes/Warm.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/SevereTrafficMat.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Textures/FantasyMetallic.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/place-of-worship-15.png
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Custom-Atlas.shader
+- Assets/MapboxSDK/Resources/OVRPlatformToolSettings.asset
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Palettes/Rainbow.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/laundry-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/DriveBuildingMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/soccer-15.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-arts.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Bush2Material.mat
+- Assets/Oculus/VR/Resources/Cubemap Blit.shader
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-outdoors.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/ferry-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasRoofs_base.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/ArtsPoiLabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/castle-15.png
+- Assets/MapboxSDK/Mapbox/Examples/1_DataExplorer/Modules/Resources/LabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/america-football-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/school-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Materials/MapboxStylesFacades.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/SimpleCoolIcon.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/pitch-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/theatre-15.png
+- Assets/MapboxSDK/Resources/ONSPSettings.asset
+- Assets/Oculus/VR/Resources/OVRMRUnlit.shader
+- Assets/MapboxSDK/Mapbox/Examples/1_DataExplorer/Modules/Resources/ExplorerCountryLabelPrefabModifier.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/garden-center-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/DarkIcon.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Materials/DefaultPerRendererMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/heart-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/TransparentBlueMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Meshes/OneWorldTradeCenter.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/OrangeMaterial.mat
+- Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/cricket-15.png
+- Assets/MapboxSDK/Mapbox/Resources/Mapbox/PrefabScreens/placeholder.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/park-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Palettes/DefaultPalette.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/gift-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/volcano-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Materials/MapboxStylesFacadesPerRenderer.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/music-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/circle-stroked-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/baseball-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/rocket-15.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Materials/StatueOfLibertyBase.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Materials/ColorTopMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Textures/FantasyAlbedo.png
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShaderSelfOccluding.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticTopNormal.png
+- Assets/Oculus/VR/Resources/Unlit Transparent Color.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Atlas/DefaultAtlasInfo.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/playground-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/cemetery-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/water-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/LowPolyTerrainMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/DirectionMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/roadTest.png
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShaderPBS.shader
+- Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/buddhism-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticSideNormal.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/ShopPoiLabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/OutdoorPoiLabelPrefab.prefab
+- Assets/Oculus/VR/Resources/OVRMRCameraFrameLit.shader
+- Assets/MapboxSDK/Mapbox/Resources/Mapbox/PrefabScreens/TabletopAR.gif
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/grocery-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticTopAlbedo.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Meshes/ChryslerBuilding.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/hospital-15.png
+- Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/star-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Materials/MapboxStylesRoofs.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/PoiMaterial 1.mat
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_Mobile_CombinedMesh.shader
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/town-hall-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/PoiMaterial.mat
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/Avatar_Mobile_CombinedMeshExpressive.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/ice-cream-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/SimpleRainbowIcon.png
+- Assets/Oculus/VR/Resources/Underlay Transparent Occluder.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/lodging-15.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-default.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticSideMetallic.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Prefabs/StatueofLiberty.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/suitcase-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/religious-muslim-15.png
+- Assets/Oculus/VR/Resources/Texture2D Blit.shader
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/Avatar_PC_SingleComponentExpressive.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/TerraceTop.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/entrance-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Assets/MapboxHollowPin.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Assets/MapboxHollowUprightPin.fbx
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Meshes/EmpireStateBuilding.fbx
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-shops.png
+- Assets/MapboxSDK/Mapbox/Resources/Mapbox/PrefabScreens/Location-basedGame.gif
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/fast-food-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Materials/FantasySideMaterial.mat
+- Assets/Oculus/Avatar/Resources/Materials/AvatarPBRV2Simple.shader
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Mobile.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/square-stroked-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/bar-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Atlas/FantasyAtlasInfo.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/rail-metro-15.png
+- Assets/MapboxSDK/UnityARInterface/Resources/GuiSkin.guiskin
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/sushi-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/central-building-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets/Materials/LightSideMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/cafe-15.png
+- Assets/MapboxSDK/Mapbox/Examples/1_DataExplorer/Modules/Resources/ExplorerDefaultLabel.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/stadium-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/parking-garage-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/landmark-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/warehouse-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/skiing-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/shelter-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Assets/MapboxFloatingPinNoBase.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Pin.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/toilet-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/police-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/golf-15.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Meshes/StatueofLiberty.fbx
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_normal_256.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasFacades_detailMask_2.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/rail-15.png
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF Overlay.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/SimpleIcon.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/TerrainMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/TransportationPoiLabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/garden-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/LocationProviderMapMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/Mapbox/PrefabList.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/RoadSideMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/RealisticIcon.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/TrafficMat.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/swimming-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite/Assets/Materials/SatelliteTopMaterial.mat
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/Avatar_Mobile_SingleComponentExpressive.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/GreenMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Prefabs/ChryslerBuilding.prefab
+- Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Assets/MapboxPin.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/art-gallery-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/religious-jewish-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/harbor-15.png
+- Assets/Resources/Mapbox/MapboxConfiguration.txt
+- Assets/MapboxSDK/Mapbox/Examples/Resources/BushMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/bicycle-share-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/tennis-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/TransparentOrangeMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/ranger-station-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Assets/MapboxCombinedPin.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/DirectionsMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/building-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Frame.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Palettes/City.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/waste-basket-15.png
+- Assets/Oculus/VR/Resources/OVRMRCameraFrame.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/SimpleUrbanIcon.png
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Atlas/RealisticAtlasInfo.asset
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticSideRoughness.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/alcohol-shop-15.png
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShaderPBSV2.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite/Assets/Materials/SatelliteSideMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/BuildingMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/LightIcon.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/karaoke-15.png
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/ServicePoiLabelPrefab.prefab
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Palettes/Cool.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/lighthouse-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/embassy-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxPin.prefab
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/SimpleWarmIcon.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Textures/FantasyNormal.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/bank-15.png
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Meshes/SalesForceTower.fbx
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-food.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Bush2.prefab
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets/Materials/DarkSideMaterial.mat
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Bitmap.shader
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Meshes/CoitTower.fbx
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_diffuse_roughness_1024.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite/SatelliteIcon.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/wetland-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/cross-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/square-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/wheelchair-15.png
+- Assets/Oculus/Avatar/Resources/Materials/Version1.5/Avatar_Mobile_SingleComponent.shader
+- Assets/MapboxSDK/Mapbox/Resources/HeroStructures/Prefabs/TransamericaPyramid.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/MapboxWhite.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Assets/MapboxFloatingPin.fbx
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/farm-15.png
+- Assets/MapboxSDK/Resources/Mapbox/MapboxConfiguration.txt
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Materials/DefaultTopMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/Mapbox/ScenesList.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/rotatedPin.prefab
+- Assets/Oculus/Avatar/Resources/Materials/Expressive/AvatarEyeLens.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Materials/SimpleTopMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/prison-15.png
+- Assets/Oculus/Avatar/Resources/Materials/AvatarSurfaceShader.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Palettes/Urban.asset
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures/RealisticTopAO.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/dam-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Textures/FantasySideAlbedo.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/dentist-15.png
+- Assets/MapboxSDK/UnityARKitPlugin/Resources/UnityARKitPlugin/ARKitSettings.asset
+- Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_normal_1024.tif
+- Assets/Oculus/VR/Resources/Underlay Impostor.shader
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Materials/SimpleSideMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/RoadMaterial.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures/BuildingAtlasRoofs_detailMask_2.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Textures/DefaultSideTexture.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/MapboxPin.prefab
+- Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/bus-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/HeavyTrafficMat.mat
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Materials/FantasyTopMaterial.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/veterinary-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Bush.prefab
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/religious-christian-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/Water.mat
+- Assets/MapboxSDK/Mapbox/Examples/3_POIPlacement/Resources/poi-icon-services.png
+- Assets/TextMesh Pro/Resources/Shaders/TMP_Sprite.shader
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets/Atlas/LightAtlasInfo.asset
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/college-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/TerraceSide.mat
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/campsite-15.png
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/marker-15.png
+- Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface.shader
+- Assets/MapboxSDK/Mapbox/Examples/Resources/maki/fire-station-15.png
+- Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Textures/DefaultTopTexture.png
+- Assets/TextMesh Pro/Resources/TMP Settings.asset
+Dependencies:
+- D:/Users/Dylan/Documents/WSU/Fall 2020/421/HuginMugin Team/Mission-Planner-3D-Copy/OVRAssetBundles/OVRMasterBundle/asset_png0
+- D:/Users/Dylan/Documents/WSU/Fall 2020/421/HuginMugin Team/Mission-Planner-3D-Copy/OVRAssetBundles/OVRMasterBundle/asset_shader0

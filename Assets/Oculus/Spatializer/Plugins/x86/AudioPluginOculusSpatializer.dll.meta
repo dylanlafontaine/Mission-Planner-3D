@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d7fec8de4c705842b32210f7eb574cc
+guid: 1bb7da3cfa5ff90459ccfa56f7a36486
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -12,7 +12,7 @@ PluginImporter:
   validateReferences: 1
   platformData:
   - first:
-      '': Editor
+      : Editor
     second:
       enabled: 0
       settings:
@@ -31,18 +31,6 @@ PluginImporter:
         CPU: X86
         DefaultValueInitialized: true
         OS: Windows
-  - first:
-      Facebook: Win
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      Facebook: Win64
-    second:
-      enabled: 0
-      settings:
-        CPU: None
   - first:
       Standalone: Linux64
     second:
