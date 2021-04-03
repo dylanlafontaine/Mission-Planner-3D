@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/VRTestScene.unity
     guid: 3b2f11acfa88688428bcca6ad4fcb99e
   - enabled: 1
-    path: Assets/MapboxSDK/Mapbox/Examples/0_PrefabScenes/CitySimulator.unity
+    path: Assets/Scenes/CitySimulator.unity
     guid: e9aaa5d7902ec4a07bb4b1f2923cafc8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1d8c828298db56248a94c6b68a2a44a6,

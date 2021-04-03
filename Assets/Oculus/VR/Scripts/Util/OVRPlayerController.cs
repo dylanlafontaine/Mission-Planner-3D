@@ -343,14 +343,23 @@ public class OVRPlayerController : MonoBehaviour
 				(moveBack && moveLeft) || (moveBack && moveRight))
 				MoveScale = 0.70710678f;
 
-			// No positional movement if we are in the air
-			if (!Controller.isGrounded)
-				MoveScale = 0.0f;
+			// No positional movement if we are in the air (We need aerial movement)
+			///if (!Controller.isGrounded)
+			///	MoveScale = 0.0f;
 
 			MoveScale *= SimulationRate * Time.deltaTime;
 
 			// Compute this for key movement
 			float moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
+
+			if (OVRInput.Get(OVRInput.RawButton.B))
+				MoveUp();
+
+			if (OVRInput.Get(OVRInput.RawButton.A))
+				MoveDown();
+
+			if (OVRInput.GetUp(OVRInput.RawButton.A))
+				Stop();
 
 			// Run!
 			if (dpad_move || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -511,6 +520,23 @@ public class OVRPlayerController : MonoBehaviour
 
 		MoveThrottle += new Vector3(0, transform.lossyScale.y * JumpForce, 0);
 
+		return true;
+	}
+	///<summary>
+	///Moves player character up
+	///</summary>
+	public bool MoveUp() {
+		MoveThrottle += new Vector3(0, JumpForce, 0);
+		return true;
+	}
+
+	///<summary>
+	///Moves player character down
+	///</summary>
+	public bool MoveDown() {
+		if (Controller.isGrounded)
+			return false;
+		MoveThrottle -= new Vector3(0, JumpForce/1000, 0);
 		return true;
 	}
 
