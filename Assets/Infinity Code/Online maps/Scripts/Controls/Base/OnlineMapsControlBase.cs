@@ -386,13 +386,13 @@ public abstract class OnlineMapsControlBase : MonoBehaviour, IOnlineMapsSavableC
         else
         {
             px = px + offsetX;
-            py = py + offsetY;
+            //py = oldPy + offsetY;
         }
 
         dragMarker.SetPosition(px, py);
 
         if (collisionObj.collision) {
-            dragMarker.SetPosition(px - offsetX * 2.5, py - offsetY * 2.5);
+            //dragMarker.SetPosition(px - offsetX * 2.5, py - offsetY * 2.5);
         }
         
         if (dragMarker.OnDrag != null) dragMarker.OnDrag(dragMarker);
