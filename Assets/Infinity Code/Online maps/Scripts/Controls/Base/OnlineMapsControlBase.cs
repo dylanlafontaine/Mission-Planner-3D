@@ -258,7 +258,10 @@ public abstract class OnlineMapsControlBase : MonoBehaviour, IOnlineMapsSavableC
         set
         {
             _dragMarker = value;
-            //if (_dragMarker != null) UpdateLastPosition();
+            if (_dragMarker != null)
+            {
+                //UpdateLastPosition();
+            }
         }
     }
 
@@ -370,10 +373,10 @@ public abstract class OnlineMapsControlBase : MonoBehaviour, IOnlineMapsSavableC
 
         if (Math.Abs(offsetX) < double.Epsilon && Math.Abs(offsetY) < double.Epsilon) return;
 
-        double px, py, oldPx, oldPy;
+        double px, py;
         dragMarker.GetPosition(out px, out py);
-        oldPx = px;
-        oldPy = py;
+        lastPositionLng = lng;
+        lastPositionLat = lat;
 
         if (lockXAxis)
         {
@@ -386,15 +389,16 @@ public abstract class OnlineMapsControlBase : MonoBehaviour, IOnlineMapsSavableC
         else
         {
             px = px + offsetX;
-            //py = oldPy + offsetY;
+            py = py + offsetY;
         }
 
         dragMarker.SetPosition(px, py);
 
-        if (collisionObj.collision) {
-            //dragMarker.SetPosition(px - offsetX * 2.5, py - offsetY * 2.5);
+        if (collisionObj.collision)
+        {
+            dragMarker.SetPosition(px - offsetX * 2.5, py - offsetY * 2.5);
         }
-        
+
         if (dragMarker.OnDrag != null) dragMarker.OnDrag(dragMarker);
         if (dragMarker is OnlineMapsMarker) map.Redraw();
         display.Prime(waypoints.points);

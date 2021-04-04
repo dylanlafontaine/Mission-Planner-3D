@@ -345,7 +345,7 @@ public class OnlineMapsMarkerBase: IOnlineMapsInteractiveElement
     {
         longitude = lng;
         latitude = lat;
-        if (OnPositionChanged != null) OnPositionChanged(this);
+        //if (OnPositionChanged != null) OnPositionChanged(this);
     }
 
     /// <summary>

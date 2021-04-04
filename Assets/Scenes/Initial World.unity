@@ -4659,7 +4659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &782982045
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8914,7 +8914,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -8931,6 +8931,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: 0
+--- !u!114 &1585922414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585922404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75583e72da6404446b0fa658a6dc72a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markerCollider: {fileID: 1585922404}
 --- !u!114 &1585922416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10554,7 +10567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1842648135
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10643,7 +10656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b62640d2e2113b4789fcb6433770300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  markerCollider: {fileID: 0}
+  markerCollider: {fileID: 1585922404}
 --- !u!54 &1842648140
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10988,7 +11001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1887166882
 CapsuleCollider:
   m_ObjectHideFlags: 0
