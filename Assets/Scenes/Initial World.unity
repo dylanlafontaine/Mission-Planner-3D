@@ -6299,6 +6299,11 @@ PrefabInstance:
       propertyPath: commandDropdown
       value: 
       objectReference: {fileID: 1254524410}
+    - target: {fileID: 1366760298033045418, guid: 13b1c08277cd32e4bb2c3448173854fb,
+        type: 3}
+      propertyPath: waypointListNum
+      value: 
+      objectReference: {fileID: 1379446747}
     - target: {fileID: 1403528684522122388, guid: 13b1c08277cd32e4bb2c3448173854fb,
         type: 3}
       propertyPath: m_PreferredWidth
@@ -7752,6 +7757,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367311364}
   m_CullTransparentMesh: 0
+--- !u!114 &1379446747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4660602266976372147, guid: 13b1c08277cd32e4bb2c3448173854fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1289639518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1382145311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 469b2f2e70bb7984fa931bfe717548cd,
@@ -8931,19 +8948,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collision: 0
---- !u!114 &1585922414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585922404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75583e72da6404446b0fa658a6dc72a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  markerCollider: {fileID: 1585922404}
 --- !u!114 &1585922416
 MonoBehaviour:
   m_ObjectHideFlags: 0
