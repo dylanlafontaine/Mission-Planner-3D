@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 296037368
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f089bfcc5d1df7363cfe8ef658bb48c5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: baf11de0be307fed61b4aea69ec3fb60
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 39fa3d8997a24136984ca6e2c99902bc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Packages/com.unity.inputsystem/InputSystem/Plugins/PlayerInput/DefaultInputActions.inputactions
+Dependencies: []

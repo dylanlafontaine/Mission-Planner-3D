@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneLoader : MonoBehaviour
+public class twoDSceneLoader : MonoBehaviour
 {
     private bool vrSceneLoaded;
     private bool twoDSceneLoaded;
@@ -33,20 +33,6 @@ public class SceneLoader : MonoBehaviour
         if (twoDSceneLoaded)
         {
             SceneManager.UnloadSceneAsync("Initial World");
-        }
-    }
-
-    public void Load2DScene()
-    {
-        vrSceneLoaded = SceneManager.GetSceneByName("CitySimulator").isLoaded;
-        twoDSceneLoaded = SceneManager.GetSceneByName("Initial World").isLoaded;
-        if (!twoDSceneLoaded)
-        {
-            SceneManager.LoadSceneAsync("Initial World");
-        }
-        if (vrSceneLoaded)
-        {
-            SceneManager.UnloadSceneAsync("CitySimulator");
         }
     }
 

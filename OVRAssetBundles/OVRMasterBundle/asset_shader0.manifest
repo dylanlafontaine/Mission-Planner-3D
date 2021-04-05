@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2061868267
+CRC: 987361246
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7e38048f8a1169e956b419131fb71996
+    Hash: fa3c6446bb1e144871d87c96e37472cd
   TypeTreeHash:
     serializedVersion: 2
     Hash: 55d48f4ad9c3b13330b9eb5ee5686477
@@ -14,4 +14,6 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/MapboxSDK/Mapbox/Shaders/MapboxStylesPerRenderer.shader
+- Assets/Infinity Code/Online maps/Shaders/TilesetCutoutShader.shader
+- Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElement.shader
 Dependencies: []

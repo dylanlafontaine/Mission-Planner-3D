@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3622000264
+CRC: 2845216453
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f6028540003df73205718c35424d510d
+    Hash: 6ce31874d85834e63f6df62c96145557
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a60a54c809150005276606334ba1c2fc
+    Hash: 3c831659204dc4c5bde96d5c5f627bb7
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -15,7 +15,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
 - Class: 43
+  Script: {instanceID: 0}
+- Class: 48
   Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
@@ -47,6 +53,7 @@ Assets:
 - Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_pinch_anim.fbx
 - Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_hold_ping_pong_ball_anim.fbx
 - Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_cap_touch_index_mask_anim.fbx
+- Assets/Cone.fbx
 - Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_hold_generic_anim.fbx
 - Assets/Oculus/SampleFramework/Core/CustomHands/Animations/l_hand_cap_touch_thumb_mask_anim.fbx
 - Assets/Oculus/SampleFramework/Core/CustomHands/Animations/r_hand_fist_anim.fbx

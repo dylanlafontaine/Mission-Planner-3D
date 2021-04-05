@@ -8,15 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Oculus/SampleFramework/Usage/HandsInteractionTrainScene.unity
     guid: a9c41884ef0c347628dfd8a4af4a022e
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/CitySimulator.unity
+    guid: e9aaa5d7902ec4a07bb4b1f2923cafc8
+  - enabled: 1
+    path: Assets/Scenes/DefaultActiveScene.unity
+    guid: 183cc8cbae203af4f8e16fe87ada05d1
+  - enabled: 1
     path: Assets/Scenes/Initial World.unity
     guid: 508003afe98093845a814e6654321075
   - enabled: 0
     path: Assets/Scenes/VRTestScene.unity
     guid: 3b2f11acfa88688428bcca6ad4fcb99e
-  - enabled: 1
-    path: Assets/Scenes/CitySimulator.unity
-    guid: e9aaa5d7902ec4a07bb4b1f2923cafc8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 1d8c828298db56248a94c6b68a2a44a6,
       type: 2}
