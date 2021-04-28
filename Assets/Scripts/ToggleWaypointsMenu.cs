@@ -7,6 +7,7 @@ public class ToggleWaypointsMenu : MonoBehaviour
 {
     public GameObject waypointsMenu;
     public Button toggleButton;
+    public Scrollbar scrollbar;
 
     public void HandleMenuToggle()
     {
@@ -15,11 +16,13 @@ public class ToggleWaypointsMenu : MonoBehaviour
         {
             waypointsMenu.SetActive(false);
             toggleButton.image.transform.Rotate(0, 0, 180);
+            scrollbar.gameObject.SetActive(false);
         }
         else
         {
             waypointsMenu.SetActive(true);
             toggleButton.image.transform.Rotate(0, 0, 180);
+            scrollbar.gameObject.SetActive(true);
         }
     }
 }
