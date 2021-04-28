@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1589043184
+CRC: 79052792
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -11,8 +11,10 @@ AssetBundleManifest:
       Name: scene_citysimulator
       Dependencies:
         Dependency_0: asset_resources
-        Dependency_1: asset_png0
-        Dependency_2: asset_prefab0
+        Dependency_1: asset_fbx0
+        Dependency_2: asset_png0
+        Dependency_3: asset_prefab0
+        Dependency_4: asset_mat0
     Info_2:
       Name: asset_fbx0
       Dependencies:

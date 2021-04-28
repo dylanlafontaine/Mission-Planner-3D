@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2591903917
+CRC: 470709245
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 39a48bffebc74962bb4dd9747eb81eb0
+    Hash: ba99630684cf6c4eec0e9c2b2af9b648
   TypeTreeHash:
     serializedVersion: 2
-    Hash: bb1440b4b15816b4a2f9b1f8a82c6b41
+    Hash: db49b1f4191bfda585f05bd57ee696ee
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -77,6 +77,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: c331d4375e95e4050aadbf5ed3492bba, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: efa163296ae7840cb80b9e3beb5f0857, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b3d881e962d099f4a8eb492ef7e9a8c0, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
@@ -431,6 +433,7 @@ Assets:
 - Assets/MapboxSDK/Mapbox/Examples/Resources/maki/dam-15.png
 - Assets/MapboxSDK/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Textures/FantasySideAlbedo.png
 - Assets/MapboxSDK/Mapbox/Examples/Resources/maki/dentist-15.png
+- Assets/Resources/OculusPlatformSettings.asset
 - Assets/MapboxSDK/UnityARKitPlugin/Resources/UnityARKitPlugin/ARKitSettings.asset
 - Assets/Oculus/Avatar/Resources/FallbackTextures/fallback_normal_1024.tif
 - Assets/Oculus/VR/Resources/Underlay Impostor.shader

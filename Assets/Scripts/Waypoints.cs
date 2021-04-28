@@ -34,6 +34,7 @@ public class Waypoints : MonoBehaviour
     public static bool insertFlag = false;
     //sphereRender is not initialized here
     Renderer sphereRender;
+    private double elevation;
 
     // Start is called before the first frame update
     void Start()
@@ -139,6 +140,8 @@ public class Waypoints : MonoBehaviour
     /// <returns>true upon success</returns>
     public bool addWaypoint(float altitude)
     {
+        OnlineMapsArcGISElevationManager.instance.RequestNewElevationData();
+        double elevation = OnlineMapsArcGISElevationManager.instance.GetMinElevation(OnlineMapsArcGISElevationManager.instance.yScaleValue);
         Debug.Log("adding waypoint");
         // Screen coordinate of the cursor.
         Vector3 mousePosition = Input.mousePosition;

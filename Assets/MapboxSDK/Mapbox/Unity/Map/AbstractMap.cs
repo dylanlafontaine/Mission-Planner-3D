@@ -1026,7 +1026,7 @@ namespace Mapbox.Unity.Map
         {
             // For quadtree implementation of the map, the map scale needs to be compensated for.
             var scaleFactor = Mathf.Pow(2, (InitialZoom - AbsoluteZoom));
-            var worldPos = Conversions.GeoToWorldPosition(latitudeLongitude, CenterMercator, WorldRelativeScale * scaleFactor).ToVector3xz();
+            var worldPos = Conversions.GeoToWorldPosition(latitudeLongitude, CenterMercator, scaleFactor).ToVector3xz();
             return Root.TransformPoint(worldPos);
         }
 
