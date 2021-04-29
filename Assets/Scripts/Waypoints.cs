@@ -35,6 +35,7 @@ public class Waypoints : MonoBehaviour
     //sphereRender is not initialized here
     Renderer sphereRender;
     private double elevation;
+    public InputField waypointSize;
 
     // Start is called before the first frame update
     void Start()
@@ -140,8 +141,6 @@ public class Waypoints : MonoBehaviour
     /// <returns>true upon success</returns>
     public bool addWaypoint(float altitude)
     {
-        OnlineMapsArcGISElevationManager.instance.RequestNewElevationData();
-        double elevation = OnlineMapsArcGISElevationManager.instance.GetMinElevation(OnlineMapsArcGISElevationManager.instance.yScaleValue);
         Debug.Log("adding waypoint");
         // Screen coordinate of the cursor.
         Vector3 mousePosition = Input.mousePosition;
@@ -170,6 +169,8 @@ public class Waypoints : MonoBehaviour
         marker.altitudeType = OnlineMapsAltitudeType.relative;
         marker.altitude = altitude;
         marker.isDraggable = true;
+        marker.sizeType = OnlineMapsMarker3D.SizeType.meters;
+        marker.scale = int.Parse(waypointSize.text);
 
         //Creates a Waypoint object and adds it to the points list
         Waypoint point = new Waypoint(marker);

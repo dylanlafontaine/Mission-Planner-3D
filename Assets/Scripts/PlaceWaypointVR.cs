@@ -14,7 +14,19 @@ public class PlaceWaypointVR : MonoBehaviour
     public AbstractMap map;
     private Vector2d latLong;
     private List<Vector2d> objectsToSpawn;
+    public Waypoints waypoints;
 
+    void Start() {
+        waypoints = FindObjectOfType<Waypoints>();
+        Invoke("SpawnWaypointFromList", 3);
+    }
+
+    public void SpawnWaypointFromList() {
+        for (int i = 0; i < waypoints.points.Count; i++) {
+            Vector2 position = waypoints.points[i].Marker.position;
+            script.SpawnWaypointsOnMapFromString(position.y.ToString() + "," + position.x.ToString(), (float)waypoints.points[i].Marker.altitude);
+        }
+    }
     public void SpawnWaypoint() {
         latLong = playerTransform.GetGeoPosition(new Vector2d(map.CenterMercator.x, map.CenterMercator.y), 1);
         double x = latLong.x;
