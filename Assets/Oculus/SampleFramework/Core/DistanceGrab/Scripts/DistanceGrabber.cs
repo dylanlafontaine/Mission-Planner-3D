@@ -25,6 +25,7 @@ namespace OculusSampleFramework
     [RequireComponent(typeof(Rigidbody))]
     public class DistanceGrabber : OVRGrabber
     {
+        public SpawnOnMap script;
         // Radius of sphere used in spherecast from hand along forward ray to find target object.
         [SerializeField]
         float m_spherecastRadius = 0;
@@ -166,6 +167,7 @@ namespace OculusSampleFramework
                     Quaternion relOri = Quaternion.Inverse(transform.rotation) * m_grabbedObj.transform.rotation;
                     m_grabbedObjectRotOff = relOri;
                 }
+                /* Commenting out the distance grab portion
                 else
                 {
                     // Set up offsets for grabbed object desired position relative to hand.
@@ -183,6 +185,7 @@ namespace OculusSampleFramework
                         m_grabbedObjectRotOff = m_grabbedObj.snapOffset.rotation * m_grabbedObjectRotOff;
                     }
                 }
+                */
 
             }
         }
@@ -215,8 +218,10 @@ namespace OculusSampleFramework
             }
             grabbedRigidbody.MovePosition(grabbablePosition);
             grabbedRigidbody.MoveRotation(grabbableRotation);
+            script.UpdateLineRenders();
         }
 
+        /*
         static private DistanceGrabbable HitInfoToGrabbable(RaycastHit hitInfo)
         {
             if (hitInfo.collider != null)
@@ -226,6 +231,7 @@ namespace OculusSampleFramework
             }
             return null;
         }
+        */
 
         protected bool FindTarget(out DistanceGrabbable dgOut, out Collider collOut)
         {

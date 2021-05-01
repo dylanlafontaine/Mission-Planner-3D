@@ -23,6 +23,14 @@ public class SpawnOnMap : MonoBehaviour
 
     public List<GameObject> _spawnedObjects = new List<GameObject>();
 
+    void Update() {
+        float leftTouchPad = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, OVRInput.Controller.Touch);
+        float rightTouchPad = OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger, OVRInput.Controller.Touch);
+        if (leftTouchPad > .35 || rightTouchPad > .35) {
+            UpdateLineRenders();
+        }
+    }
+
     public void SpawnWaypointsOnMapFromString(string location, float altitude) {
         _locationStrings.Clear();
 		_locationStrings.Add(location);
@@ -38,15 +46,7 @@ public class SpawnOnMap : MonoBehaviour
             _spawnedObjects.Add(instance);
         }
 
-		for (int i = 0; i < _spawnedObjects.Count - 1; i++) {
-			GameObject renderObject = new GameObject();
-			LineRenderer line = renderObject.AddComponent<LineRenderer>();
-			line.startWidth = .5f;
-			line.endWidth = .1f;
-			line.enabled = true;
-			line.SetPosition(0, _spawnedObjects[i].transform.localPosition);
-			line.SetPosition(1, _spawnedObjects[i + 1].transform.localPosition);
-		}
+        UpdateLineRenders();
     }
 
     public void SpawnWaypointsOnMap(string location, Transform playerTransform, Transform playerForwardTransform)
@@ -66,14 +66,20 @@ public class SpawnOnMap : MonoBehaviour
             _spawnedObjects.Add(instance);
         }
 
-		for (int i = 0; i < _spawnedObjects.Count - 1; i++) {
+		UpdateLineRenders();
+    }
+
+    public void UpdateLineRenders() {
+        for (int i = 0; i < _spawnedObjects.Count - 1; i++) {
+            _spawnedObjects[i].GetComponentInChildren<LineRenderer>().Destroy();
 			GameObject renderObject = new GameObject();
 			LineRenderer line = renderObject.AddComponent<LineRenderer>();
 			line.startWidth = .5f;
 			line.endWidth = .1f;
 			line.enabled = true;
-			line.SetPosition(0, _spawnedObjects[i].transform.position);
-			line.SetPosition(1, _spawnedObjects[i + 1].transform.position);
+			line.SetPosition(0, _spawnedObjects[i].transform.localPosition);
+			line.SetPosition(1, _spawnedObjects[i + 1].transform.localPosition);
+            line.transform.SetParent(_spawnedObjects[i].transform);
 		}
     }
 }

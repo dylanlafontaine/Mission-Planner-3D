@@ -219,6 +219,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1183533205}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &163915129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163915128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd425c2d06f39bf4899d07c05d0f10eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabBegin: 0.55
+  grabEnd: 0.35
+  m_parentHeldObject: 0
+  m_moveHandPosition: 0
+  m_gripTransform: {fileID: 766821923}
+  m_grabVolumes:
+  - {fileID: 686317889}
+  - {fileID: 433736842}
+  - {fileID: 1240090952}
+  m_controller: 2
+  m_parentTransform: {fileID: 1798012130}
+  m_player: {fileID: 363577550}
 --- !u!1001 &191620626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -639,6 +663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Z Arrow Cone
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 469b2f2e70bb7984fa931bfe717548cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469b2f2e70bb7984fa931bfe717548cd, type: 3}
 --- !u!4 &292468381 stripped
@@ -1020,6 +1049,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 363577549}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &433736842 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 136334822803353524, guid: 6fae51a9f4170334e8639e8dbfc0a54b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183533205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &466846080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 168962, guid: ce816f2e6abb0504092c23ed9b970dfd,
@@ -1066,6 +1101,7 @@ MonoBehaviour:
   playerForwardTransform: {fileID: 1872444752}
   script: {fileID: 755133603}
   map: {fileID: 755133604}
+  waypoints: {fileID: 0}
 --- !u!4 &547512002
 Transform:
   m_ObjectHideFlags: 0
@@ -1186,7 +1222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 660648097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b388ff4c8d1f3644a143b16d45403ca, type: 3}
+  m_Script: {fileID: 11500000, guid: fd425c2d06f39bf4899d07c05d0f10eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grabBegin: 0.55
@@ -1201,14 +1237,6 @@ MonoBehaviour:
   m_controller: 1
   m_parentTransform: {fileID: 524690115}
   m_player: {fileID: 363577550}
-  m_spherecastRadius: 0
-  m_noSnapThreshhold: 0.05
-  m_useSpherecast: 0
-  m_preventGrabThroughWalls: 1
-  m_objectPullVelocity: 10
-  m_maxGrabDistance: 0
-  m_grabObjectsInLayer: 8
-  m_obstructionLayer: 0
 --- !u!1 &685959066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,6 +1339,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0.096, y: -0.139}
   m_SizeDelta: {x: 500, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!64 &686317889 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 64397448320254550, guid: 6fae51a9f4170334e8639e8dbfc0a54b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183533205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &747962765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,6 +1428,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd961b1c9541a4cee99686069ecce852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &766821923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4742687578853502, guid: 6fae51a9f4170334e8639e8dbfc0a54b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183533205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &886947321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,6 +1902,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3030462383634831045, guid: 428e6be05c891ea428918da5feeaada0,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030462383634831045, guid: 428e6be05c891ea428918da5feeaada0,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2044,7 +2089,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 3
 --- !u!1001 &1165417261
 PrefabInstance:
@@ -2133,6 +2178,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Y Arrow Cone
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 469b2f2e70bb7984fa931bfe717548cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469b2f2e70bb7984fa931bfe717548cd, type: 3}
 --- !u!4 &1165417262 stripped
@@ -2208,6 +2258,11 @@ PrefabInstance:
       objectReference: {fileID: 1669472769}
     - target: {fileID: 114956354361317420, guid: 6fae51a9f4170334e8639e8dbfc0a54b,
         type: 3}
+      propertyPath: script
+      value: 
+      objectReference: {fileID: 755133603}
+    - target: {fileID: 114956354361317420, guid: 6fae51a9f4170334e8639e8dbfc0a54b,
+        type: 3}
       propertyPath: m_player
       value: 
       objectReference: {fileID: 363577550}
@@ -2221,8 +2276,15 @@ PrefabInstance:
       propertyPath: m_grabObjectsInLayer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114956354361317420, guid: 6fae51a9f4170334e8639e8dbfc0a54b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fae51a9f4170334e8639e8dbfc0a54b, type: 3}
+--- !u!136 &1240090952 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 136015375050507356, guid: 6fae51a9f4170334e8639e8dbfc0a54b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183533205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253813341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,6 +2569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: X Arrow Cone
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 469b2f2e70bb7984fa931bfe717548cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469b2f2e70bb7984fa931bfe717548cd, type: 3}
@@ -3829,7 +3896,7 @@ GameObject:
   - component: {fileID: 1622467298}
   - component: {fileID: 1622467297}
   - component: {fileID: 1622467296}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Y Arrow Cylinder
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -4520,7 +4587,7 @@ GameObject:
   - component: {fileID: 1894510761}
   - component: {fileID: 1894510760}
   - component: {fileID: 1894510759}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Z Arrow Cylinder
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -4682,7 +4749,7 @@ GameObject:
   - component: {fileID: 1940873249}
   - component: {fileID: 1940873248}
   - component: {fileID: 1940873247}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XArrowCylinder
   m_TagString: Arrow
   m_Icon: {fileID: 0}
